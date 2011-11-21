@@ -1,0 +1,7 @@
+Type:
+
+node updoc.js example.js
+
+or
+
+updoc example.js

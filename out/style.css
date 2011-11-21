@@ -1,0 +1,99 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+section {
+  padding: .4em 1em;
+  margin: 1em;
+  background-color: #dce8f1;
+  border-radius: 10px;
+}
+
+h1, h2, h3 {
+  margin: .3em 0;
+}
+
+h1 {
+  font-size: 1.6em;
+}
+
+h2 {
+  font-size: 1.4em;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+p {
+  background-color: rgba(255, 255, 255, .5);
+  border-radius: 5px;
+  padding: .3em .5em;
+  margin: .3em 0;
+}
+
+#content {
+  width: 700px;
+  margin: 0 auto;
+}
+
+.header {
+  border-style: none solid solid none;
+  border-width: 2px;
+  border-color: #8895a0;
+}
+
+.property {
+  font-weight: bold;
+}
+
+.depth0 {
+  margin: 0em;
+}
+
+.depth0 h1 {
+  text-shadow: 1px 1px 0 #cc7800;
+}
+
+.depth0.header {
+  margin: 1em 0;
+  border-style: none solid solid none;
+  border-width: 2px;
+  border-color: #9e5d00;
+  border-radius: 20px;
+  background-color: #ffc571;
+}
+
+.depth1 {
+  margin: 1em 2em;
+}
+
+.depth1 h1 {
+  text-shadow: 1px 1px 0 #005896;
+}
+
+.depth1.header {
+  border-style: none solid solid none;
+  border-color: #00416e;
+  border-width: 2px;
+  background-color: #c9e9ff;
+  margin: 1em 1em;
+}
+
+.depth2 {
+  margin: 1em 3em;
+}
+
+.depth2.header {
+  margin: 1em 2em;
+}
+
+.depth3 {
+  margin: 1em 4em;
+}
+
+.depth3.header {
+  margin: 1em 3em;
+}

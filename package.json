@@ -1,0 +1,17 @@
+{
+  "author": "Greg Smith (http://incompl.com)",
+  "name": "updoc",
+  "description": "simple, flexible documentation generator",
+  "version": "0.0.0",
+  "repository": {
+    "url": ""
+  },
+  "engines": {
+    "node": "~0.5.8 || 0.5.8-pre"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+  "bin": {
+    "updoc": "updoc.js"
+  }
+}
