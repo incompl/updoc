@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>updoc</title>
-    <link rel="stylesheet" href="../templates/default.css">
+    <script src="prettify.js"></script>
+    <link rel="stylesheet" href="prettify.css">
     <style>
 body {
   padding: 0;
@@ -65,8 +66,30 @@ ul {
 }
 
 #content {
-  width: 700px;
+  width: 900px;
   margin: 0 auto;
+}
+
+nav {
+  float: left;
+  width: 150px;
+  padding: 8px;
+  background-color: #dce8f1;
+  border-radius: 10px;
+  border-style: none solid solid none;
+  border-width: 2px;
+  border-color: #8895a0;
+}
+
+nav ul {
+  padding: 2px 7px;
+  list-style-type: none;
+  background-color: rgba(255, 255, 255, .5);
+  border-radius: 5px;
+}
+
+#sections {
+  margin-left: 180px;
 }
 
 footer {
@@ -119,7 +142,7 @@ code {
 }
 
 .depth1 {
-  margin: 1em 2em;
+  margin: 1em 0 1em 2em;
 }
 
 .depth1 h1 {
@@ -131,72 +154,170 @@ code {
   border-color: #00416e;
   border-width: 2px;
   background-color: #c9e9ff;
-  margin: 1em 1em;
+  margin: 1em 0 1em 1em;
 }
 
 .depth2 {
-  margin: 1em 3em;
+  margin: 1em 0 1em 3em;
 }
 
 .depth2.header {
-  margin: 1em 2em;
+  margin: 1em 0 1em 2em;
 }
 
 .depth3 {
-  margin: 1em 4em;
+  margin: 1em 0 1em 4em;
 }
 
 .depth3.header {
-  margin: 1em 3em;
+  margin: 1em 0 1em 3em;
 }
     </style>
   </head>
   <body>
     <div id="content">
-      
-        <section class="depth0 header">
+      <nav>
+        <ul>
+          
+            
+              <li>
+                
+                
+                  <a href="#header-updoc">updoc</a>
+                
+                
+              </li>
+            
+          
+            
+              <li>
+                -
+                
+                  <a href="#header-About">About</a>
+                
+                
+              </li>
+            
+          
+            
+              <li>
+                -
+                
+                  <a href="#header-Features">Features</a>
+                
+                
+              </li>
+            
+          
+            
+              <li>
+                -
+                
+                  <a href="#header-Example">Example</a>
+                
+                
+              </li>
+            
+          
+            
+              <li>
+                -
+                
+                  <a href="#header-Download">Download</a>
+                
+                
+              </li>
+            
+          
+            
+              <li>
+                -
+                
+                  <a href="#header-Rules">Rules</a>
+                
+                
+              </li>
+            
+          
+            
+              <li>
+                -
+                
+                  <a href="#header-Using updoc">Using updoc</a>
+                
+                
+              </li>
+            
+          
+            
+              <li>
+                -
+                
+                  <a href="#header-Modules">Modules</a>
+                
+                
+              </li>
+            
+          
+            
+              <li>
+                -
+                
+                  <a href="#header-Templates">Templates</a>
+                
+                
+              </li>
+            
+          
+            
+          
+        </ul>
+      </nav>
+      <div id="sections">
         
-          <h1> updoc</h1>
+          <section class="depth0 header">
           
-          
-          
-          <ul>
+            <h1 id="header-updoc">updoc</h1>
             
+            
+            
+            <ul>
               
-            
+                
               
-            
+                
               
-            
+                
               
+                
+              
+            </ul>
             
-          </ul>
-          
-          <div class="description"> the flexible javascript documentation generator</div>
-          
-        </section>
-      
-        <section class="depth1 header">
+            <div class="description">the flexible javascript documentation generator</div>
+            
+          </section>
         
-          <h1> About</h1>
+          <section class="depth1 header">
           
-          
-          
-          <ul>
+            <h1 id="header-About">About</h1>
             
+            
+            
+            <ul>
               
-            
+                
               
-            
+                
               
-            
+                
               
-            
+                
               
+                
+              
+            </ul>
             
-          </ul>
-          
-          <div class="description"><p>
+            <div class="description"><p>
 updoc doesn't tell you what to document about your code. You
 just specify whatever properties you care about, then updoc generates
 nice-looking documentation for it.
@@ -205,307 +326,265 @@ nice-looking documentation for it.
 It's suitable both for internal developer documentation and external
 api documentation.
 </p></div>
-          
-        </section>
-      
-        <section class="depth1 header">
+            
+          </section>
         
-          <h1> Features</h1>
+          <section class="depth1 header">
           
-          
-          
-          <ul>
+            <h1 id="header-Features">Features</h1>
             
-              
             
-              
             
+            <ul>
               
+                
+              
+                
+              
+                
+              
+                
+                  <li>
+                    <span class="property">
+                      flexible
+                    </span>
+                    so you can use whatever properties you want
+                  </li>
+                
+              
+                
+                  <li>
+                    <span class="property">
+                      aware
+                    </span>
+                    of function and var names
+                  </li>
+                
+              
+                
+                  <li>
+                    <span class="property">
+                      templates
+                    </span>
+                    are easy to create and modify
+                  </li>
+                
+              
+                
+                  <li>
+                    <span class="property">
+                      html
+                    </span>
+                    allowed in comments
+                  </li>
+                
+              
+                
+                  <li>
+                    <span class="property">
+                      json
+                    </span>
+                    output if you want it
+                  </li>
+                
+              
+                
+              
+            </ul>
             
-              
-                <li>
-                  <span class="property">
-                    flexible
-                  </span>
-                   so you can use whatever properties you want
-                </li>
-              
             
-              
-                <li>
-                  <span class="property">
-                    aware
-                  </span>
-                   of function and var names
-                </li>
-              
             
-              
-                <li>
-                  <span class="property">
-                    templates
-                  </span>
-                   are easy to create and modify
-                </li>
-              
-            
-              
-                <li>
-                  <span class="property">
-                    html
-                  </span>
-                   allowed in comments
-                </li>
-              
-            
-              
-                <li>
-                  <span class="property">
-                    json
-                  </span>
-                   output if you want it
-                </li>
-              
-            
-              
-            
-          </ul>
-          
-          
-          
-        </section>
-      
-        <section class="depth1 header">
+          </section>
         
-          <h1> Download</h1>
+          <section class="depth1 header">
           
-          
-          
-          <ul>
+            <h1 id="header-Example">Example</h1>
             
+            
+            
+            <ul>
               
-            
+                
               
-            
+                
               
-            
+                
               
-            
+                
+                  <li>
+                    <span class="property">
+                      demo
+                    </span>
+                    <a href="example.js">example.js</a> creates <a href="example.html">
+example.html</a></p>
+                  </li>
+                
               
+                
+                  <li>
+                    <span class="property">
+                      bonus
+                    </span>
+                    this site was created by <a href="site.js">this file</a></p>
+                  </li>
+                
+              
+                
+              
+            </ul>
             
-          </ul>
-          
-          <div class="description"> <a href="https://github.com/incompl/updoc">on github</a></div>
-          
-        </section>
-      
-        <section class="depth1 header">
+            
+            
+          </section>
         
-          <h1> Example</h1>
+          <section class="depth1 header">
           
-          
-            <h2>
-              function
-              
-              
-              
-              foo
-            </h2>
-          
-          
-          <ul>
+            <h1 id="header-Download">Download</h1>
             
-              
             
-              
             
+            <ul>
               
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
             
-              
+            <div class="description"><a href="https://github.com/incompl/updoc">on github</a></div>
             
-              
-                <li>
-                  <span class="property">
-                    param1
-                  </span>
-                   x Number
-                </li>
-              
-            
-              
-                <li>
-                  <span class="property">
-                    param2
-                  </span>
-                   y Number
-                </li>
-              
-            
-              
-                <li>
-                  <span class="property">
-                    param3
-                  </span>
-                   z Number
-                </li>
-              
-            
-              
-                <li>
-                  <span class="property">
-                    return
-                  </span>
-                   Number
-                </li>
-              
-            
-              
-            
-              
-            
-          </ul>
-          
-          <div class="description"><p><a href="example.js">example.js</a> creates <a href="example.html">example.html</a></p>
-<p>This section was created from:</p>
-<code>&#47;&#42;&#42;
-&nbsp;&#42; &#64;module 3example
-&nbsp;&#42; &#64;header Example
-&nbsp;&#42; &#64;param x Number
-&nbsp;&#42; &#64;param y Number
-&nbsp;&#42; &#64;param z Number
-&nbsp;&#42; &#64;return Number
-&nbsp;&#42; &#64;description This section was created from:
-&nbsp;&#42; &lt;code>...&lt;/code>
-&nbsp;&#42;&#47;
-function foo(x, y, z) {return x + y + z;}</code>
-<p>See also <a href="site.js">the js file that generated this site</a></p></div>
-          
-        </section>
-      
-        <section class="depth1 header">
+          </section>
         
-          <h1> Rules</h1>
+          <section class="depth1 header">
           
-          
-          
-          <ul>
+            <h1 id="header-Rules">Rules</h1>
             
-              
             
-              
             
+            <ul>
               
-            
+                
               
-                <li>
-                  <span class="property">
-                    start
-                  </span>
-                   updoc comments with /** on new line
-                </li>
+                
               
-            
+                
               
-                <li>
-                  <span class="property">
-                    close
-                  </span>
-                   updoc comments with &#42;/ on new line
-                </li>
+                
+                  <li>
+                    <span class="property">
+                      start
+                    </span>
+                    updoc comments with /** on new line
+                  </li>
+                
               
-            
+                
+                  <li>
+                    <span class="property">
+                      close
+                    </span>
+                    updoc comments with &#42;/ on new line
+                  </li>
+                
               
-                <li>
-                  <span class="property">
-                    leading
-                  </span>
-                   *s are stripped
-                </li>
+                
+                  <li>
+                    <span class="property">
+                      leading
+                    </span>
+                    *s are stripped
+                  </li>
+                
               
-            
+                
+                  <li>
+                    <span class="property">
+                      &#64;
+                    </span>
+                    indicates a property (escape with &amp;#64;)
+                  </li>
+                
               
-                <li>
-                  <span class="property">
-                    &#64;
-                  </span>
-                   indicates a property (escape with &amp;#64;)
-                </li>
-              
-            
-              
-                <li>
-                  <span class="property">
-                    lines
-                  </span>
-                   following a property
+                
+                  <li>
+                    <span class="property">
+                      lines
+                    </span>
+                    following a property
 are included in that property
-                </li>
+                  </li>
+                
               
+                
+                  <li>
+                    <span class="property">
+                      text
+                    </span>
+                    before any properties is not documented
+                  </li>
+                
+              
+                
+              
+            </ul>
             
-              
-                <li>
-                  <span class="property">
-                    text
-                  </span>
-                   before any properties is not documented
-                </li>
-              
             
-              
             
-          </ul>
-          
-          
-          
-        </section>
-      
-        <section class="depth1 header">
+          </section>
         
-          <h1> Using updoc</h1>
+          <section class="depth1 header">
           
-          
-          
-          <ul>
+            <h1 id="header-Using updoc">Using updoc</h1>
             
+            
+            
+            <ul>
               
-            
+                
               
-            
+                
               
-            
+                
               
-            
+                
               
+                
+              
+            </ul>
             
-          </ul>
-          
-          <div class="description"> You can use updoc like this:
+            <div class="description">You can use updoc like this:
 <code>node updoc input.js output.html</code>
 An optional 3rd argument specifies the template.</div>
-          
-        </section>
-      
-        <section class="depth1 header">
+            
+          </section>
         
-          <h1> Modules</h1>
+          <section class="depth1 header">
           
-          
-          
-          <ul>
+            <h1 id="header-Modules">Modules</h1>
             
+            
+            
+            <ul>
               
-            
+                
               
-            
+                
               
-            
+                
               
-            
+                
               
+                
+              
+            </ul>
             
-          </ul>
-          
-          <div class="description"> updoc organizes your documentation by modules. Each comment
+            <div class="description">updoc organizes your documentation by modules. Each comment
 block can have a &#64;module property. It looks like this:
 <code>&#64;module app.util.foobar</code>
 Sections are nested by
@@ -516,30 +595,30 @@ the module's depth and sorted by name. The sort order follows:
 <li>order of appearance in source</li>
 </ol>
 If the module property is ommitited it is a top-level section.</div>
-          
-        </section>
-      
-        <section class="depth1 header">
+            
+          </section>
         
-          <h1> Templates</h1>
+          <section class="depth1 header">
           
-          
-          
-          <ul>
+            <h1 id="header-Templates">Templates</h1>
             
+            
+            
+            <ul>
               
-            
+                
               
-            
+                
               
-            
+                
               
-            
+                
               
+                
+              
+            </ul>
             
-          </ul>
-          
-          <div class="description"><p>
+            <div class="description"><p>
 Templates consume a json file. This json file is just the
 properties provided in the updoc comments, with a few bonus properties.
 </p>
@@ -570,33 +649,43 @@ templates</a>.
 You can view the raw json output by specifying "json" as the output file
 </p>
 <code>node updoc example.js json</code></div>
-          
-        </section>
-      
-        <section class="depth0 ">
+            
+          </section>
         
+          <section class="depth0 ">
           
-          
-          
-          
-          <ul>
             
+            
+            
+            
+            <ul>
               
-            
+                
               
-            
+                
               
+                
+              
+            </ul>
             
-          </ul>
-          
-          <div class="description"> Created by <a href="http://incompl.com">Greg Smith</a>
+            <div class="description">Created by <a href="http://incompl.com">Greg Smith</a>
 at <a href="http://bocoup.com">Bocoup</a></div>
-          
-        </section>
-      
+            
+          </section>
+        
+      </div>
     </div>
     <footer>
       generated by <a href="https://github.com/incompl/updoc">updoc</a> 0.1
     </footer>
   </body>
+  <script>
+(function() {
+  var codes = document.getElementsByTagName("code")
+  for (var i = 0; i < codes.length; i++) {
+    codes[i].className = codes[i].className + " prettyprint";
+  }
+  prettyPrint();
+})();
+  </script>
 </html>

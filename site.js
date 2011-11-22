@@ -29,39 +29,22 @@
  */
 
 /**
- * @module 3download
+ * @module 3example
+ * @header Example
+ * @demo <a href="example.js">example.js</a> creates <a href="example.html">
+ * example.html</a></p>
+ * @bonus this site was created by <a href="site.js">this file</a></p>
+ */
+
+/**
+ * @module 4download
  * @header Download
  * @description <a href="https://github.com/incompl/updoc">on github</a>
  */
 
 /**
- * @module 3example
- * @header Example
- * @param x Number
- * @param y Number
- * @param z Number
- * @return Number 
- * @description
- * <p><a href="example.js">example.js</a> creates <a href="example.html">example.html</a></p>
- * <p>This section was created from:</p>
- <code>&#47;&#42;&#42;
-&nbsp;&#42; &#64;module 3example
-&nbsp;&#42; &#64;header Example
-&nbsp;&#42; &#64;param x Number
-&nbsp;&#42; &#64;param y Number
-&nbsp;&#42; &#64;param z Number
-&nbsp;&#42; &#64;return Number 
-&nbsp;&#42; &#64;description This section was created from:
-&nbsp;&#42; &lt;code>...&lt;/code>
-&nbsp;&#42;&#47;
-function foo(x, y, z) {return x + y + z;}</code>
- * <p>See also <a href="site.js">the js file that generated this site</a></p>
- */
-function foo(x, y, z) {return x + y + z;}
-
-/**
  * not documented
- * @module 4rules
+ * @module 5rules
  * @header Rules
  * @start updoc comments with /** on new line
  * @close updoc comments with &#42;/ on new line
@@ -73,7 +56,7 @@ function foo(x, y, z) {return x + y + z;}
  */
 
 /**
- * @module 5using
+ * @module 6using
  * @header Using updoc
  * @description You can use updoc like this:
  * <code>node updoc input.js output.html</code>
@@ -82,7 +65,7 @@ function foo(x, y, z) {return x + y + z;}
  */
 
 /**
- * @module 6modules
+ * @module 7modules
  * @header Modules
  * @description updoc organizes your documentation by modules. Each comment
  * block can have a &#64;module property. It looks like this:
@@ -98,7 +81,7 @@ function foo(x, y, z) {return x + y + z;}
  */
 
 /**
- * @module 7templates
+ * @module 8templates
  * @header Templates
  * @description
  * <p>
