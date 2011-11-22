@@ -1,5 +1,5 @@
 /**
- * @header My Example Application
+ * @header Example App
  * @description Used to show off how cool updoc is.
  * Spoiler warning: it's <em>really cool</em>.
  */
