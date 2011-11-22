@@ -69,7 +69,7 @@ fs.readFile(file, "utf8", function (err, data) {
       property = property.replace(/^[\s\*\/]*$/mg, "");
         
       // get the prop/value info
-      propInfo = property.match(/@(\S*)([\s\S]*)/);
+      propInfo = property.match(/@(\S*)\s+([\s\S]*)/);
       propName = propInfo[1];
       propVal = propInfo[2];
         

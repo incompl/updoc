@@ -15,6 +15,7 @@
  * <p>
  * It's suitable both for internal developer documentation and external
  * api documentation.
+ * </p>
  */
 
 /**
@@ -30,42 +31,32 @@
 /**
  * @module 3example
  * @header Example
- * @param x Number
- * @param y Number
- * @param z Number
- * @return Number 
- * @description This section created from:
- * <code>
-&#47;&#42;&#42;
-&nbsp;&#42; &#64;module 3example
-&nbsp;&#42; &#64;header Example
-&nbsp;&#42; &#64;param x Number
-&nbsp;&#42; &#64;param y Number
-&nbsp;&#42; &#64;param z Number
-&nbsp;&#42; &#64;return Number 
-&nbsp;&#42; &#64;description This section created from:
-&nbsp;&#42; &lt;code>...&lt;/code>
-&nbsp;&#42;&#47;
-function foo(x, y, z) {return x + y + z;}
-</code>
+ * @demo <a href="example.js">example.js</a> creates <a href="example.html">
+ * example.html</a></p>
+ * @bonus this site was created by <a href="site.js">this file</a></p>
  */
-function foo(x, y, z) {return x + y + z;}
+
+/**
+ * @module 4download
+ * @header Download
+ * @description <a href="https://github.com/incompl/updoc">on github</a>
+ */
 
 /**
  * not documented
- * @module 4rules
+ * @module 5rules
  * @header Rules
  * @start updoc comments with /** on new line
  * @close updoc comments with &#42;/ on new line
  * @leading *s are stripped
- * @&#64 indicates a property (escape with &amp;#64;)
+ * @&#64; indicates a property (escape with &amp;#64;)
  * @lines following a property
  * are included in that property
  * @text before any properties is not documented
  */
 
 /**
- * @module 5using
+ * @module 6using
  * @header Using updoc
  * @description You can use updoc like this:
  * <code>node updoc input.js output.html</code>
@@ -74,11 +65,11 @@ function foo(x, y, z) {return x + y + z;}
  */
 
 /**
- * @module 6modules
+ * @module 7modules
  * @header Modules
  * @description updoc organizes your documentation by modules. Each comment
- * block can have a &#64module property. It looks like this:
- * <code>&#64module app.util.foobar</code>
+ * block can have a &#64;module property. It looks like this:
+ * <code>&#64;module app.util.foobar</code>
  * Sections are nested by
  * the module's depth and sorted by name. The sort order follows:
  * <ol>
@@ -90,15 +81,14 @@ function foo(x, y, z) {return x + y + z;}
  */
 
 /**
- * @module 7templates
+ * @module 8templates
  * @header Templates
  * @description
  * <p>
  * Templates consume a json file. This json file is just the
  * properties provided in the updoc comments, with a few bonus properties.
  * </p>
-<code>
-{
+<code>{
 &nbsp;version: '0.1', // updoc version
 &nbsp;sections: [ // each updoc comment is a section
 &nbsp;&nbsp;{
@@ -109,13 +99,17 @@ function foo(x, y, z) {return x + y + z;}
 &nbsp;&nbsp;  depth: 2 // module depth. &#64;module foo.bar.bat is depth 3
 &nbsp; }
 &nbsp;]
-}
-</code>
+}</code>
  * <p>
  * No other properties are special, but the template can decide to make them
  * special. For example, the default template has special formatting for
  * &#64;header and &#64;description. These are not treated specially by
  * the updoc code itself.
+ * </p>
+ * <p>
+ * updoc currently uses
+ * <a href="http://documentcloud.github.com/underscore/#template">underscore
+ * templates</a>.
  * </p>
  * <p>
  * You can view the raw json output by specifying "json" as the output file
