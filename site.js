@@ -32,8 +32,8 @@
  * @module 3example
  * @header Example
  * @demo <a href="example.js">example.js</a> creates <a href="example.html">
- * example.html</a></p>
- * @bonus this site was created by <a href="site.js">this file</a></p>
+ * example.html</a>
+ * @bonus this site was created by <a href="site.js">this file</a>
  */
 
 /**
@@ -77,7 +77,7 @@
  *   <li>alphabetical by name (for functions and vars)</li>
  *   <li>order of appearance in source</li>
  * </ol>
- * If the module property is ommitited it is a top-level section.
+ * If the module property is omitted it is a top-level section.
  */
 
 /**
