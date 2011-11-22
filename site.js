@@ -36,7 +36,7 @@
  * @return Number 
  * @description
  * <p><a href="example.js">example.js</a> creates <a href="example.html">example.html</a></p>
- * <p>This was section created from:</p>
+ * <p>This section was created from:</p>
  <code>&#47;&#42;&#42;
 &nbsp;&#42; &#64;module 3example
 &nbsp;&#42; &#64;header Example
