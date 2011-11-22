@@ -28,6 +28,12 @@
  */
 
 /**
+ * @module 3download
+ * @header Download
+ * @description <a href="https://github.com/incompl/updoc">on github</a>
+ */
+
+/**
  * @module 3example
  * @header Example
  * @param x Number
