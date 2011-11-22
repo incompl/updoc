@@ -34,6 +34,8 @@ window.example = (function() {
   /**
    * @module util.math
    * @description Create random number between x and y
+   * @param x number
+   * @param y number
    * @return number
    */
   function numBetween(x, y) {

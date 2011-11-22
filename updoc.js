@@ -1,16 +1,20 @@
 var fs = require("fs");
-var _ = require("underscore");
-var combyne = require("combyne");
+_ = require("underscore");
+
+var VERSION = "0.1";
 
 var args = process.argv.slice(2);
 
 var file = args[0] || "example.js";
 var targetFile = args[1] || "out/result.html";
-var templateFile = args[2] || "templates/default.combyne";
+var templateFile = args[2] || "templates/default._template";
 
 fs.readFile(file, "utf8", function (err, data) {
   var blockComments;
-  var json = {sections:[]};
+  var json = {
+    version: VERSION,
+    sections:[]
+  };
   
   if (err) {
     console.error("Can't read " + file + ": " + err.code);
@@ -26,6 +30,7 @@ fs.readFile(file, "utf8", function (err, data) {
     var potentialValue;
     var blockData = {};
     var moduleData;
+    var deleteProps = {};
     
     // determine variable or function name
     if (lastLine.match("function")) {
@@ -53,13 +58,15 @@ fs.readFile(file, "utf8", function (err, data) {
     _.each(properties, function(property) {
       var propInfo;
       var propName;
+      var numberedPropName;
       var propVal;
+      var propNum;
       var propValLines = [];
         
       // cleanup stray comment and javadoc-ish syntax
-      property = property.replace(/^[\s\*]*/m, "");
-      property = property.replace(/[\s\*]*$/m, "");
-      property = property.replace(/^[\s\*\/]*$/m, "");
+      property = property.replace(/^[\s\*]*/mg, "\n");
+      property = property.replace(/[\s\*]*$/mg, "");
+      property = property.replace(/^[\s\*\/]*$/mg, "");
         
       // get the prop/value info
       propInfo = property.match(/@(\S*)([\s\S]*)/);
@@ -68,14 +75,30 @@ fs.readFile(file, "utf8", function (err, data) {
         
       // remove empty lines and stuff
       _.each(propVal.split(/\n/), function(line) {
-        var trimmedLine = line.replace(/^[\s\*]*/, "");
-        trimmedLine = trimmedLine.replace(/[\s\*]*$/, "");
-        if (trimmedLine.length > 0) {
-          propValLines.push(trimmedLine);
+        if (line.length > 0) {
+          propValLines.push(line);
         }
       });
       
-      blockData[propName] = propValLines.join("\n");
+      // add number to prop names if there is more than one with same name
+      numberedPropName = propName;
+      while (blockData[numberedPropName]) {
+        propNum = numberedPropName.match(/\d+$/);
+        if (propNum) {
+          numberedPropName = numberedPropName.match(/(\D+)\d+/)[1] + (Number(propNum) + 1);
+        }
+        else {
+          blockData[numberedPropName + "1"] = blockData[numberedPropName];
+          numberedPropName = numberedPropName + "2";
+          deleteProps[propName] = true;
+        }
+      }
+      blockData[numberedPropName] = propValLines.join("\n");
+    });
+    
+    // If we have numbered versions, delete the unnumbered version
+    _.each(deleteProps, function(val, prop) {
+      delete blockData[prop];
     });
     
     // Module info
@@ -114,7 +137,7 @@ fs.readFile(file, "utf8", function (err, data) {
     
     // Apply the template and write out HTML
     fs.readFile(templateFile, "utf8", function (err, data) {
-      var html = combyne(data).render(json);
+      var html = _.template(data, json);
       fs.writeFile(targetFile, html, function(err) {
         if (err) {
           console.log(err);

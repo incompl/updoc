@@ -2,7 +2,7 @@
   "author": "Greg Smith (http://incompl.com)",
   "name": "updoc",
   "description": "simple, flexible documentation generator",
-  "version": "0.0.0",
+  "version": "0.1",
   "repository": {
     "url": ""
   },
