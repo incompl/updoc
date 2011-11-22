@@ -59,7 +59,7 @@ function foo(x, y, z) {return x + y + z;}
  * @start updoc comments with /** on new line
  * @close updoc comments with &#42;/ on new line
  * @leading *s are stripped
- * @&#64 indicates a property (escape with &amp;#64;)
+ * @&#64; indicates a property (escape with &amp;#64;)
  * @lines following a property
  * are included in that property
  * @text before any properties is not documented
@@ -78,8 +78,8 @@ function foo(x, y, z) {return x + y + z;}
  * @module 6modules
  * @header Modules
  * @description updoc organizes your documentation by modules. Each comment
- * block can have a &#64module property. It looks like this:
- * <code>&#64module app.util.foobar</code>
+ * block can have a &#64;module property. It looks like this:
+ * <code>&#64;module app.util.foobar</code>
  * Sections are nested by
  * the module's depth and sorted by name. The sort order follows:
  * <ol>
