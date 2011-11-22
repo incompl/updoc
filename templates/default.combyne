@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>updoc</title>
+    <link rel="stylesheet" href="../templates/default.css">
+  </head>
+  <body>
+    <div id="content">
+      {%each sections%}
+        <section class="depth{{depth}} {%if header%}header{%endif%}">
+        
+          {%if header%}
+            <h1>
+              {{header}}
+            </h1>
+          {%endif%}
+          
+          {%if name%}
+            <h2>
+              {%if type == "function"%}
+                function
+              {%endif%}
+              
+              {%if type == "var"%}
+                var
+              {%endif%}
+              
+              {{name}}
+            </h2>
+          {%endif%}
+          
+          {%if param%}
+            <p><span class="property">Param</span>: {{param}}</p>
+          {%endif%}
+          
+          {%if return%}
+            <p><span class="property">Return</span>: {{return}}</p>
+          {%endif%}
+          
+          {%if description%}
+            <p>{{description}}</p>
+          {%endif%}
+          
+        </section>
+      {%endeach%}
+    </div>
+  </body>
+</html>

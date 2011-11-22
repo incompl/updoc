@@ -4,8 +4,9 @@ var combyne = require("combyne");
 
 var args = process.argv.slice(2);
 
-var file = args[0];
-var targetFile = "out/result.html";
+var file = args[0] || "example.js";
+var targetFile = args[1] || "out/result.html";
+var templateFile = args[2] || "templates/default.combyne";
 
 fs.readFile(file, "utf8", function (err, data) {
   var blockComments;
@@ -23,10 +24,10 @@ fs.readFile(file, "utf8", function (err, data) {
     var blockComment = commentAndNextLine.match(/^\s*\/\*\*[\s\S]*?\*\//gm)[0];
     var properties = blockComment.match(/@[^@]*/g);
     var potentialValue;
-    var blockData = {data:{}};
+    var blockData = {};
     var moduleData;
     
-    // get name
+    // determine variable or function name
     if (lastLine.match("function")) {
         potentialValue = lastLine.match(/function ([\w$_]+)/);
         if (potentialValue) {
@@ -105,16 +106,25 @@ fs.readFile(file, "utf8", function (err, data) {
     }
   });
   
-  fs.readFile("template.html", "utf8", function (err, data) {
-    var html = combyne(data).render(json);
-    fs.writeFile("out/result.html", html, function(err) {
-      if (err) {
-        console.log(err);
-      }
-      else {
-        console.log("Success! Documentation created at " + targetFile);
-      }
-    }); 
-  });
+  // if 2nd argument is "json" write out raw json
+  if (targetFile === "json") {
+    console.info(json);
+  }
+  else {
+    
+    // Apply the template and write out HTML
+    fs.readFile(templateFile, "utf8", function (err, data) {
+      var html = combyne(data).render(json);
+      fs.writeFile(targetFile, html, function(err) {
+        if (err) {
+          console.log(err);
+        }
+        else {
+          console.log("Success! Documentation created at " + targetFile);
+        }
+      }); 
+    });
+  
+  }
   
 });
