@@ -34,21 +34,20 @@
  * @param y Number
  * @param z Number
  * @return Number 
- * @description This section created from:
- * <code>
-&#47;&#42;&#42;
+ * @description
+ * <p><a href="example.js">example.js</a> creates <a href="example.html">example.html</a></p>
+ * <p>This was section created from:</p>
+ <code>&#47;&#42;&#42;
 &nbsp;&#42; &#64;module 3example
 &nbsp;&#42; &#64;header Example
 &nbsp;&#42; &#64;param x Number
 &nbsp;&#42; &#64;param y Number
 &nbsp;&#42; &#64;param z Number
 &nbsp;&#42; &#64;return Number 
-&nbsp;&#42; &#64;description This section created from:
+&nbsp;&#42; &#64;description This section was created from:
 &nbsp;&#42; &lt;code>...&lt;/code>
 &nbsp;&#42;&#47;
-function foo(x, y, z) {return x + y + z;}
-</code>
- * <p><a href="example.js">example.js</a> creates <a href="example.html">example.html</a></p>
+function foo(x, y, z) {return x + y + z;}</code>
  * <p>See also <a href="site.js">the js file that generated this site</a></p>
  */
 function foo(x, y, z) {return x + y + z;}
@@ -99,8 +98,7 @@ function foo(x, y, z) {return x + y + z;}
  * Templates consume a json file. This json file is just the
  * properties provided in the updoc comments, with a few bonus properties.
  * </p>
-<code>
-{
+<code>{
 &nbsp;version: '0.1', // updoc version
 &nbsp;sections: [ // each updoc comment is a section
 &nbsp;&nbsp;{
@@ -111,13 +109,17 @@ function foo(x, y, z) {return x + y + z;}
 &nbsp;&nbsp;  depth: 2 // module depth. &#64;module foo.bar.bat is depth 3
 &nbsp; }
 &nbsp;]
-}
-</code>
+}</code>
  * <p>
  * No other properties are special, but the template can decide to make them
  * special. For example, the default template has special formatting for
  * &#64;header and &#64;description. These are not treated specially by
  * the updoc code itself.
+ * </p>
+ * <p>
+ * updoc currently uses
+ * <a href="http://documentcloud.github.com/underscore/#template">underscore
+ * templates</a>.
  * </p>
  * <p>
  * You can view the raw json output by specifying "json" as the output file
