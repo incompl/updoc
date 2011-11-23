@@ -1,6 +1,6 @@
 INSTALL:
 
-node install updoc -g
+sudo npm install updoc -g
 
 RUN:
 
