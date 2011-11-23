@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+var fs = require("fs");
+require("../updoc.js");
+
+var args = process.argv.slice(0);
+
+var inFile = args[2];
+var outFile = args[3];
+var templateFile = args[4];
+
+if (!outFile) {
+  outFile = "updoc.html";
+}
+
+if (!templateFile) {
+  // TODO make this relative... but how
+  templateFile = "/usr/local/lib/node_modules/updoc/templates/default._template";
+}
+
+updoc(inFile, outFile, templateFile);
