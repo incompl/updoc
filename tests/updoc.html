@@ -8,7 +8,7 @@
     <style>
 body {
   padding: 0;
-  margin: 0;
+  margin: 1em 0 0;
   font-family: sans-serif;
   line-height: 1.4em;
 }
@@ -125,7 +125,7 @@ code {
 }
 
 .depth0 {
-  margin: 0em;
+  margin: 1em 0em;
 }
 
 .depth0 h1 {
@@ -133,7 +133,6 @@ code {
 }
 
 .depth0.header {
-  margin: 1em 0;
   border-style: none solid solid none;
   border-width: 2px;
   border-color: #9e5d00;
@@ -142,7 +141,7 @@ code {
 }
 
 .depth1 {
-  margin: 1em 0 1em 2em;
+  margin: 1em 0 1em 1em;
 }
 
 .depth1 h1 {
@@ -154,22 +153,13 @@ code {
   border-color: #00416e;
   border-width: 2px;
   background-color: #c9e9ff;
-  margin: 1em 0 1em 1em;
 }
 
 .depth2 {
-  margin: 1em 0 1em 3em;
-}
-
-.depth2.header {
   margin: 1em 0 1em 2em;
 }
 
 .depth3 {
-  margin: 1em 0 1em 4em;
-}
-
-.depth3.header {
   margin: 1em 0 1em 3em;
 }
     </style>
@@ -183,7 +173,7 @@ code {
               <li>
                 
                 
-                  <a href="#header-Example-App">Example App</a>
+                  <a href="#header-module-test">module test</a>
                 
                 
               </li>
@@ -193,18 +183,8 @@ code {
               <li>
                 -
                 
-                  <a href="#header-Guesser-module">Guesser module</a>
                 
-                
-              </li>
-            
-          
-            
-              <li>
-                --
-                
-                
-                  <a href="#name-SECRET">SECRET</a>
+                  <a href="#name-foo">foo</a>
                 
               </li>
             
@@ -214,7 +194,17 @@ code {
                 --
                 
                 
-                  <a href="#name-guess">guess</a>
+                  <a href="#name-bar">bar</a>
+                
+              </li>
+            
+          
+            
+              <li>
+                ---
+                
+                
+                  <a href="#name-bat">bat</a>
                 
               </li>
             
@@ -223,8 +213,8 @@ code {
               <li>
                 -
                 
-                  <a href="#header-Util-Module">Util Module</a>
                 
+                  <a href="#name-gar">gar</a>
                 
               </li>
             
@@ -233,8 +223,8 @@ code {
               <li>
                 --
                 
-                  <a href="#header-Cheating">Cheating</a>
                 
+                  <a href="#name-a">a</a>
                 
               </li>
             
@@ -244,17 +234,7 @@ code {
                 ---
                 
                 
-                  <a href="#name-cheat">cheat</a>
-                
-              </li>
-            
-          
-            
-              <li>
-                --
-                
-                  <a href="#header-Math">Math</a>
-                
+                  <a href="#name-bat">bat</a>
                 
               </li>
             
@@ -264,7 +244,27 @@ code {
                 ---
                 
                 
-                  <a href="#name-numBetween">numBetween</a>
+                  <a href="#name-cat">cat</a>
+                
+              </li>
+            
+          
+            
+              <li>
+                --
+                
+                
+                  <a href="#name-b">b</a>
+                
+              </li>
+            
+          
+            
+              <li>
+                ---
+                
+                
+                  <a href="#name-ape">ape</a>
                 
               </li>
             
@@ -273,9 +273,9 @@ code {
       </nav>
       <div id="sections">
         
-          <section class="depth0 header">
+          <section class="depth0 header" data-module="">
           
-            <h1 id="header-Example-App">Example App</h1>
+            <h1 id="header-module-test">module test</h1>
             
             
             
@@ -287,50 +287,23 @@ code {
               
                 
               
-                
-              
             </ul>
             
-            <div class="description">Used to show off how cool updoc is.
-Spoiler warning: it's <em>really cool</em>.</div>
+            
             
           </section>
         
-          <section class="depth1 header">
-          
-            <h1 id="header-Guesser-module">Guesser module</h1>
-            
-            
-            
-            <ul>
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-            </ul>
-            
-            <div class="description">The main application</div>
-            
-          </section>
-        
-          <section class="depth1 ">
+          <section class="depth1 " data-module="foo">
           
             
             
             
-              <h2 id="name-SECRET">
+              <h2 id="name-foo">
                 
                 
                 var
                 
-                SECRET
+                foo
               </h2>
             
             
@@ -348,22 +321,53 @@ Spoiler warning: it's <em>really cool</em>.</div>
               
             </ul>
             
-            <div class="description">Can't guess this from outside the module.
-Is a value from 1 to 10</div>
+            <div class="description">...</div>
             
           </section>
         
-          <section class="depth1 ">
+          <section class="depth2 " data-module="foo.bar">
           
             
             
             
-              <h2 id="name-guess">
+              <h2 id="name-bar">
+                
+                
+                
+                
+                bar
+              </h2>
+            
+            
+            <ul>
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+            
+            <div class="description">...</div>
+            
+          </section>
+        
+          <section class="depth3 " data-module="foo.bar.bat">
+          
+            
+            
+            
+              <h2 id="name-bat">
                 function
                 
                 
                 
-                guess
+                bat
               </h2>
             
             
@@ -376,37 +380,27 @@ Is a value from 1 to 10</div>
                 
               
                 
-                  <li>
-                    <span class="property">
-                      param
-                    </span>
-                    guessed value
-                  </li>
-                
-              
-                
-              
-                
-                  <li>
-                    <span class="property">
-                      return
-                    </span>
-                    true or false
-                  </li>
-                
               
                 
               
             </ul>
             
-            <div class="description">Guess what the secret value is</div>
+            <div class="description">...</div>
             
           </section>
         
-          <section class="depth1 header">
+          <section class="depth1 " data-module="gar">
           
-            <h1 id="header-Util-Module">Util Module</h1>
             
+            
+            
+              <h2 id="name-gar">
+                
+                
+                var
+                
+                gar
+              </h2>
             
             
             <ul>
@@ -423,14 +417,22 @@ Is a value from 1 to 10</div>
               
             </ul>
             
-            <div class="description">Back door debugging stuff</div>
+            <div class="description">...</div>
             
           </section>
         
-          <section class="depth2 header">
+          <section class="depth2 " data-module="gar.a">
           
-            <h1 id="header-Cheating">Cheating</h1>
             
+            
+            
+              <h2 id="name-a">
+                
+                
+                
+                
+                a
+              </h2>
             
             
             <ul>
@@ -447,21 +449,21 @@ Is a value from 1 to 10</div>
               
             </ul>
             
-            <div class="description">For development only!</div>
+            <div class="description">...</div>
             
           </section>
         
-          <section class="depth2 ">
+          <section class="depth3 " data-module="gar.a.bat">
           
             
             
             
-              <h2 id="name-cheat">
+              <h2 id="name-bat">
                 function
                 
                 
                 
-                cheat
+                bat
               </h2>
             
             
@@ -476,57 +478,24 @@ Is a value from 1 to 10</div>
                 
               
                 
-                  <li>
-                    <span class="property">
-                      return
-                    </span>
-                    a number 1-10
-                  </li>
-                
-              
-                
               
             </ul>
             
-            <div class="description">Cheat and learn the secret value</div>
+            <div class="description">...</div>
             
           </section>
         
-          <section class="depth2 header">
-          
-            <h1 id="header-Math">Math</h1>
-            
-            
-            
-            <ul>
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-            </ul>
-            
-            <div class="description">Useful math utilities</div>
-            
-          </section>
-        
-          <section class="depth2 ">
+          <section class="depth3 " data-module="gar.a.cat">
           
             
             
             
-              <h2 id="name-numBetween">
+              <h2 id="name-cat">
                 function
                 
                 
                 
-                numBetween
+                cat
               </h2>
             
             
@@ -541,37 +510,74 @@ Is a value from 1 to 10</div>
                 
               
                 
-                  <li>
-                    <span class="property">
-                      param1
-                    </span>
-                    x number
-                  </li>
+              
+            </ul>
+            
+            <div class="description">...</div>
+            
+          </section>
+        
+          <section class="depth2 " data-module="gar.b">
+          
+            
+            
+            
+              <h2 id="name-b">
+                
+                
+                
+                
+                b
+              </h2>
+            
+            
+            <ul>
+              
                 
               
                 
-                  <li>
-                    <span class="property">
-                      param2
-                    </span>
-                    y number
-                  </li>
-                
               
                 
-                  <li>
-                    <span class="property">
-                      return
-                    </span>
-                    number
-                  </li>
+              
                 
               
                 
               
             </ul>
             
-            <div class="description">Create random number between x and y</div>
+            <div class="description">...</div>
+            
+          </section>
+        
+          <section class="depth3 " data-module="gar.b.ape">
+          
+            
+            
+            
+              <h2 id="name-ape">
+                function
+                
+                
+                
+                ape
+              </h2>
+            
+            
+            <ul>
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+            
+            <div class="description">...</div>
             
           </section>
         

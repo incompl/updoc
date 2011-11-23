@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>updoc</title>
+    <script src="prettify.js"></script>
+    <link rel="stylesheet" href="prettify.css">
+    <style>
+body {
+  padding: 0;
+  margin: 1em 0 0;
+  font-family: sans-serif;
+  line-height: 1.4em;
+}
+
+a:link {
+  color: #000498;
+}
+a:hover {
+  color: #4549ff;
+}
+a:visited {
+  color: black;
+}
+a:active {
+  color: black;
+}
+
+section {
+  padding: .6em 1em .4em;
+  margin: 1em;
+  background-color: #dce8f1;
+  border-radius: 10px;
+}
+
+h1, h2, h3 {
+  text-shadow: 1px 1px 0 #838383;
+  margin: 0 0 .2em;
+}
+
+h1 {
+  font-size: 1.6em;
+}
+
+h2 {
+  font-size: 1.4em;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+p {
+  margin: .4em 0;
+}
+
+ul {
+  margin: 0;
+}
+
+.description {
+  background-color: rgba(255, 255, 255, .5);
+  border-radius: 5px;
+  padding: .3em .5em;
+  margin: .5em 0 .3em;
+}
+
+#content {
+  width: 900px;
+  margin: 0 auto;
+}
+
+nav {
+  float: left;
+  width: 150px;
+  padding: 8px;
+  background-color: #dce8f1;
+  border-radius: 10px;
+  border-style: none solid solid none;
+  border-width: 2px;
+  border-color: #8895a0;
+}
+
+nav ul {
+  padding: 2px 7px;
+  list-style-type: none;
+  background-color: rgba(255, 255, 255, .5);
+  border-radius: 5px;
+}
+
+#sections {
+  margin-left: 180px;
+}
+
+footer {
+  text-align: center;
+  padding: .5em 0;
+  color: #858585;
+}
+
+footer a:link, footer a:visited {
+  color: #5b5c88;
+}
+
+code {
+  display: block;
+  font-family: monospace;
+  font-size: 1.3em;
+  white-space: pre;
+  margin: .3em 0;
+  padding: .3em .5em;
+  background-color: rgba(255, 255, 255, .8);
+  border-radius: 5px;
+  color: #1f1f1f;
+}
+
+.header {
+  border-style: none solid solid none;
+  border-width: 2px;
+  border-color: #8895a0;
+}
+
+.property {
+  font-weight: bold;
+}
+
+.depth0 {
+  margin: 1em 0em;
+}
+
+.depth0 h1 {
+  text-shadow: 1px 1px 0 #cc7800;
+}
+
+.depth0.header {
+  border-style: none solid solid none;
+  border-width: 2px;
+  border-color: #9e5d00;
+  border-radius: 20px;
+  background-color: #ffc571;
+}
+
+.depth1 {
+  margin: 1em 0 1em 1em;
+}
+
+.depth1 h1 {
+  text-shadow: 1px 1px 0 #005896;
+}
+
+.depth1.header {
+  border-style: none solid solid none;
+  border-color: #00416e;
+  border-width: 2px;
+  background-color: #c9e9ff;
+}
+
+.depth2 {
+  margin: 1em 0 1em 2em;
+}
+
+.depth3 {
+  margin: 1em 0 1em 3em;
+}
+    </style>
+  </head>
+  <body>
+    <div id="content">
+      <nav>
+        <ul>
+          
+            
+              <li>
+                
+                
+                  <a href="#header-Example-App">Example App</a>
+                
+                
+              </li>
+            
+          
+            
+              <li>
+                -
+                
+                  <a href="#header-Guesser-module">Guesser module</a>
+                
+                
+              </li>
+            
+          
+            
+              <li>
+                --
+                
+                
+                  <a href="#name-SECRET">SECRET</a>
+                
+              </li>
+            
+          
+            
+              <li>
+                --
+                
+                
+                  <a href="#name-guess">guess</a>
+                
+              </li>
+            
+          
+            
+              <li>
+                -
+                
+                  <a href="#header-Util-Module">Util Module</a>
+                
+                
+              </li>
+            
+          
+            
+              <li>
+                --
+                
+                  <a href="#header-Cheating">Cheating</a>
+                
+                
+              </li>
+            
+          
+            
+              <li>
+                ---
+                
+                
+                  <a href="#name-cheat">cheat</a>
+                
+              </li>
+            
+          
+            
+              <li>
+                --
+                
+                  <a href="#header-Math">Math</a>
+                
+                
+              </li>
+            
+          
+            
+              <li>
+                ---
+                
+                
+                  <a href="#name-numBetween">numBetween</a>
+                
+              </li>
+            
+          
+        </ul>
+      </nav>
+      <div id="sections">
+        
+          <section class="depth0 header" data-module="">
+          
+            <h1 id="header-Example-App">Example App</h1>
+            
+            
+            
+            <ul>
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+            
+            <div class="description">Used to show off how cool updoc is.
+Spoiler warning: it's <em>really cool</em>.</div>
+            
+          </section>
+        
+          <section class="depth1 header" data-module="guesser">
+          
+            <h1 id="header-Guesser-module">Guesser module</h1>
+            
+            
+            
+            <ul>
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+            
+            <div class="description">The main application</div>
+            
+          </section>
+        
+          <section class="depth2 " data-module="guesser.SECRET">
+          
+            
+            
+            
+              <h2 id="name-SECRET">
+                
+                
+                var
+                
+                SECRET
+              </h2>
+            
+            
+            <ul>
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+            
+            <div class="description">Can't guess this from outside the module.
+Is a value from 1 to 10</div>
+            
+          </section>
+        
+          <section class="depth2 " data-module="guesser.guess">
+          
+            
+            
+            
+              <h2 id="name-guess">
+                
+                
+                
+                
+                guess
+              </h2>
+            
+            
+            <ul>
+              
+                
+              
+                
+              
+                
+                  <li>
+                    <span class="property">
+                      param
+                    </span>
+                    guessed value
+                  </li>
+                
+              
+                
+              
+                
+                  <li>
+                    <span class="property">
+                      return
+                    </span>
+                    true or false
+                  </li>
+                
+              
+                
+              
+            </ul>
+            
+            <div class="description">Guess what the secret value is</div>
+            
+          </section>
+        
+          <section class="depth1 header" data-module="util">
+          
+            <h1 id="header-Util-Module">Util Module</h1>
+            
+            
+            
+            <ul>
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+            
+            <div class="description">Back door debugging stuff</div>
+            
+          </section>
+        
+          <section class="depth2 header" data-module="util.cheating">
+          
+            <h1 id="header-Cheating">Cheating</h1>
+            
+            
+            
+            <ul>
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+            
+            <div class="description">For development only!</div>
+            
+          </section>
+        
+          <section class="depth3 " data-module="util.cheating.cheat">
+          
+            
+            
+            
+              <h2 id="name-cheat">
+                
+                
+                
+                
+                cheat
+              </h2>
+            
+            
+            <ul>
+              
+                
+              
+                
+              
+                
+              
+                
+                  <li>
+                    <span class="property">
+                      return
+                    </span>
+                    a number 1-10
+                  </li>
+                
+              
+                
+              
+            </ul>
+            
+            <div class="description">Cheat and learn the secret value</div>
+            
+          </section>
+        
+          <section class="depth2 header" data-module="util.math">
+          
+            <h1 id="header-Math">Math</h1>
+            
+            
+            
+            <ul>
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+            
+            <div class="description">Useful math utilities</div>
+            
+          </section>
+        
+          <section class="depth3 " data-module="util.math.numBetween">
+          
+            
+            
+            
+              <h2 id="name-numBetween">
+                
+                
+                
+                
+                numBetween
+              </h2>
+            
+            
+            <ul>
+              
+                
+              
+                
+              
+                
+              
+                
+                  <li>
+                    <span class="property">
+                      param1
+                    </span>
+                    x number
+                  </li>
+                
+              
+                
+                  <li>
+                    <span class="property">
+                      param2
+                    </span>
+                    y number
+                  </li>
+                
+              
+                
+                  <li>
+                    <span class="property">
+                      return
+                    </span>
+                    number
+                  </li>
+                
+              
+                
+              
+            </ul>
+            
+            <div class="description">Create random number between x and y</div>
+            
+          </section>
+        
+      </div>
+    </div>
+    <footer>
+      generated by <a href="https://github.com/incompl/updoc">updoc</a> 0.0.1
+    </footer>
+    <script>
+(function() {
+  var codes = document.getElementsByTagName("code")
+  for (var i = 0; i < codes.length; i++) {
+    codes[i].className = codes[i].className + " prettyprint";
+  }
+  prettyPrint();
+})();
+  </script>
+  </body>
+</html>

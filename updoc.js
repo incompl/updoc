@@ -53,32 +53,49 @@ updoc = function(file, targetFile, templateFile) {
       var blockComment = commentAndNextLine.match(/^\s*\/\*\*[\s\S]*?\*\//gm)[0];
       var properties = blockComment.match(/@[^@]*/g);
       var potentialValue;
+      var potentialModule;
       var blockData = {};
       var moduleData;
       var deleteProps = {};
       
-      // determine variable or function name
-      if (lastLine.match("function")) {
-          potentialValue = lastLine.match(/function ([\w$_]+)/);
+      // module and name for
+      //   foo.bar.baz = ...;
+      potentialModule = lastLine.match(/^([\w$_.]+)\s+=\s+(.*)/);
+      if (potentialModule && potentialModule[1] && potentialModule[2]) {
+        blockData.module = potentialModule[1];
+        blockData.name = potentialModule[1].substr(potentialModule[1].lastIndexOf(".") + 1);
+        if (potentialModule[2].match(/function\s*\(/)) {
+          blockData.type = "function";
+        }
+        else {
+          blockData.type = "other";
+        }
+      }
+      // function name for
+      //   function foo() {
+      // and
+      //   foo: function() {
+      else if (lastLine.match("function")) {
+        potentialValue = lastLine.match(/function ([\w$_]+)/);
+        if (potentialValue) {
+          blockData.name = potentialValue[1];
+        }
+        else {
+          potentialValue = lastLine.match(/([\w$_]+):\s*function/);
           if (potentialValue) {
             blockData.name = potentialValue[1];
           }
-          else {
-            potentialValue = lastLine.match(/([\w$_]+):\s*function/);
-            if (potentialValue) {
-              blockData.name = potentialValue[1];
-            }
-          }
-          blockData.type = "function";
+        }
       }
+      // var name for
+      //   var foo = 5;
       else if (lastLine.match("var")) {
-          blockData.name = lastLine.match(/var ([\w$_]+)/)[1];
-          blockData.type = "var";
+        blockData.name = lastLine.match(/var ([\w$_]+)/)[1];
+        blockData.type = "var";
       }
       else {
-          blockData.type = "other";
+        blockData.type = "other";
       }
-      
       
       _.each(properties, function(property) {
         var propInfo;
@@ -106,19 +123,24 @@ updoc = function(file, targetFile, templateFile) {
         });
         
         // add number to prop names if there is more than one with same name
-        numberedPropName = propName;
-        while (blockData[numberedPropName]) {
-          propNum = numberedPropName.match(/\d+$/);
-          if (propNum) {
-            numberedPropName = numberedPropName.match(/(\D+)\d+/)[1] + (Number(propNum) + 1);
-          }
-          else {
-            blockData[numberedPropName + "1"] = blockData[numberedPropName];
-            numberedPropName = numberedPropName + "2";
-            deleteProps[propName] = true;
-          }
+        if (propName === "module") {
+          blockData.module = propValLines[0];
         }
-        blockData[numberedPropName] = propValLines.join("\n");
+        else {
+          numberedPropName = propName;
+          while (blockData[numberedPropName]) {
+            propNum = numberedPropName.match(/\d+$/);
+            if (propNum) {
+              numberedPropName = numberedPropName.match(/(\D+)\d+/)[1] + (Number(propNum) + 1);
+            }
+            else {
+              blockData[numberedPropName + "1"] = blockData[numberedPropName];
+              numberedPropName = numberedPropName + "2";
+              deleteProps[propName] = true;
+            }
+          }
+          blockData[numberedPropName] = propValLines.join("\n");
+        }
       });
       
       // If we have numbered versions, delete the unnumbered version
@@ -126,7 +148,17 @@ updoc = function(file, targetFile, templateFile) {
         delete blockData[prop];
       });
       
-      // Module info
+      // if module wasn't detected, add the name to the provided @module
+      if (!potentialModule && blockData.name) {
+        if (blockData.module) {
+          blockData.module += "." + blockData.name;
+        }
+        else {
+          blockData.module = blockData.name;
+        }
+      }
+      
+      // depth
       if (blockData.module) {
         moduleData = blockData.module.split(".");
         blockData.depth = moduleData.length;
@@ -142,15 +174,21 @@ updoc = function(file, targetFile, templateFile) {
     json.sections.sort(function(a, b) {
       if (a.module === b.module) {
         if (a.name === undefined) {
-          return false;
+          return -1;
         }
         if (b.name === undefined) {
-          return true;
+          return 1;
         }
-        return a.name > b.name;
+        return a.name > b.name ? 1 : -1;
+      }
+      else if (a.module === undefined) {
+        return -1;
+      }
+      else if (b.module === undefined) {
+        return 1;
       }
       else {
-        return a.module > b.module;
+        return a.module > b.module ? 1 : -1;
       }
     });
     

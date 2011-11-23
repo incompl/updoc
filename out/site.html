@@ -8,7 +8,7 @@
     <style>
 body {
   padding: 0;
-  margin: 0;
+  margin: 1em 0 0;
   font-family: sans-serif;
   line-height: 1.4em;
 }
@@ -125,7 +125,7 @@ code {
 }
 
 .depth0 {
-  margin: 0em;
+  margin: 1em 0em;
 }
 
 .depth0 h1 {
@@ -133,7 +133,6 @@ code {
 }
 
 .depth0.header {
-  margin: 1em 0;
   border-style: none solid solid none;
   border-width: 2px;
   border-color: #9e5d00;
@@ -142,7 +141,7 @@ code {
 }
 
 .depth1 {
-  margin: 1em 0 1em 2em;
+  margin: 1em 0 1em 1em;
 }
 
 .depth1 h1 {
@@ -154,22 +153,13 @@ code {
   border-color: #00416e;
   border-width: 2px;
   background-color: #c9e9ff;
-  margin: 1em 0 1em 1em;
 }
 
 .depth2 {
-  margin: 1em 0 1em 3em;
-}
-
-.depth2.header {
   margin: 1em 0 1em 2em;
 }
 
 .depth3 {
-  margin: 1em 0 1em 4em;
-}
-
-.depth3.header {
   margin: 1em 0 1em 3em;
 }
     </style>
@@ -233,7 +223,7 @@ code {
               <li>
                 -
                 
-                  <a href="#header-Rules">Rules</a>
+                  <a href="#header-Using-updoc">Using updoc</a>
                 
                 
               </li>
@@ -243,7 +233,7 @@ code {
               <li>
                 -
                 
-                  <a href="#header-Using-updoc">Using updoc</a>
+                  <a href="#header-Rules">Rules</a>
                 
                 
               </li>
@@ -270,12 +260,22 @@ code {
             
           
             
+              <li>
+                -
+                
+                  <a href="#header-Highlighting">Highlighting</a>
+                
+                
+              </li>
+            
+          
+            
           
         </ul>
       </nav>
       <div id="sections">
         
-          <section class="depth0 header">
+          <section class="depth0 header" data-module="">
           
             <h1 id="header-updoc">updoc</h1>
             
@@ -297,7 +297,7 @@ code {
             
           </section>
         
-          <section class="depth1 header">
+          <section class="depth1 header" data-module="1info">
           
             <h1 id="header-About">About</h1>
             
@@ -329,7 +329,7 @@ api documentation.
             
           </section>
         
-          <section class="depth1 header">
+          <section class="depth1 header" data-module="2features">
           
             <h1 id="header-Features">Features</h1>
             
@@ -358,6 +358,15 @@ api documentation.
                       aware
                     </span>
                     of function and var names
+                  </li>
+                
+              
+                
+                  <li>
+                    <span class="property">
+                      code
+                    </span>
+                    is organized by modules
                   </li>
                 
               
@@ -396,7 +405,7 @@ api documentation.
             
           </section>
         
-          <section class="depth1 header">
+          <section class="depth1 header" data-module="3example">
           
             <h1 id="header-Example">Example</h1>
             
@@ -437,7 +446,7 @@ example.html</a>
             
           </section>
         
-          <section class="depth1 header">
+          <section class="depth1 header" data-module="4download">
           
             <h1 id="header-Download">Download</h1>
             
@@ -461,7 +470,35 @@ example.html</a>
             
           </section>
         
-          <section class="depth1 header">
+          <section class="depth1 header" data-module="5using">
+          
+            <h1 id="header-Using-updoc">Using updoc</h1>
+            
+            
+            
+            <ul>
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+            
+            <div class="description">Install updoc like this:
+<code>sudo npm install updoc -g</code>
+Use updoc like this:
+<code>updoc input.js output.html</code>
+An optional 3rd argument specifies the template.</div>
+            
+          </section>
+        
+          <section class="depth1 header" data-module="6rules">
           
             <h1 id="header-Rules">Rules</h1>
             
@@ -538,33 +575,7 @@ are included in that property
             
           </section>
         
-          <section class="depth1 header">
-          
-            <h1 id="header-Using-updoc">Using updoc</h1>
-            
-            
-            
-            <ul>
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-            </ul>
-            
-            <div class="description">You can use updoc like this:
-<code>node updoc input.js output.html</code>
-An optional 3rd argument specifies the template.</div>
-            
-          </section>
-        
-          <section class="depth1 header">
+          <section class="depth1 header" data-module="7modules">
           
             <h1 id="header-Modules">Modules</h1>
             
@@ -587,6 +598,9 @@ An optional 3rd argument specifies the template.</div>
             <div class="description">updoc organizes your documentation by modules. Each comment
 block can have a &#64;module property. It looks like this:
 <code>&#64;module app.util.foobar</code>
+The function or var name is added to the end of the module if appropriate.
+Code of this form has its module set automatically:
+<code>foo.bar.bat = function() {} // my module is foo.bar.bat</code>
 Sections are nested by
 the module's depth and sorted by name. The sort order follows:
 <ol>
@@ -594,11 +608,12 @@ the module's depth and sorted by name. The sort order follows:
 <li>alphabetical by name (for functions and vars)</li>
 <li>order of appearance in source</li>
 </ol>
-If the module property is omitted it is a top-level section.</div>
+If the module property is omitted and isn't detected it is a top-level
+section.</div>
             
           </section>
         
-          <section class="depth1 header">
+          <section class="depth1 header" data-module="8templates">
           
             <h1 id="header-Templates">Templates</h1>
             
@@ -623,14 +638,14 @@ Templates consume a json file. This json file is just the
 properties provided in the updoc comments, with a few bonus properties.
 </p>
 <code>{
-&nbsp;version: '0.1', // updoc version
+&nbsp;version: '0.0.1', // updoc version
 &nbsp;sections: [ // each updoc comment is a section
 &nbsp;&nbsp;{
 &nbsp;&nbsp;  name: 'foo' // var name or function name. may be absent
 &nbsp;&nbsp;  type: 'function', // function or var or other
 &nbsp;&nbsp;  prop: 'val', // &#64;prop val
-&nbsp;&nbsp;  module: 'example.util', // &#64;module example.util
-&nbsp;&nbsp;  depth: 2 // module depth. &#64;module foo.bar.bat is depth 3
+&nbsp;&nbsp;  module: 'example.util.foo', // &#64;module example.util
+&nbsp;&nbsp;  depth: 3 // module depth. &#64;module foo.bar.bat is depth 3
 &nbsp; }
 &nbsp;]
 }</code>
@@ -647,18 +662,48 @@ templates</a>.
 </p>
 <p>
 You can view the raw json output by specifying "json" as the output file
-</p>
-<code>node updoc example.js json</code></div>
+</p></div>
             
           </section>
         
-          <section class="depth0 ">
+          <section class="depth1 header" data-module="90highlighting">
+          
+            <h1 id="header-Highlighting">Highlighting</h1>
+            
+            
+            
+            <ul>
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+            
+            <div class="description">The default template uses
+<a href="http://code.google.com/p/google-code-prettify/">prettify</a>.
+To get code highlighting, just put prettify.js and prettify.css in the same
+directory as your output. Then put code in a code element like this:
+<code>&lt;code>function() {}&lt;/code></code>
+</p></div>
+            
+          </section>
+        
+          <section class="depth1 " data-module="91footer">
           
             
             
             
             
             <ul>
+              
+                
               
                 
               
@@ -676,7 +721,7 @@ at <a href="http://bocoup.com">Bocoup</a></div>
       </div>
     </div>
     <footer>
-      generated by <a href="https://github.com/incompl/updoc">updoc</a> 0.1
+      generated by <a href="https://github.com/incompl/updoc">updoc</a> 0.0.1
     </footer>
     <script>
 (function() {

@@ -8,7 +8,7 @@
     <style>
 body {
   padding: 0;
-  margin: 0;
+  margin: 1em 0 0;
   font-family: sans-serif;
   line-height: 1.4em;
 }
@@ -125,7 +125,7 @@ code {
 }
 
 .depth0 {
-  margin: 0em;
+  margin: 1em 0em;
 }
 
 .depth0 h1 {
@@ -133,7 +133,6 @@ code {
 }
 
 .depth0.header {
-  margin: 1em 0;
   border-style: none solid solid none;
   border-width: 2px;
   border-color: #9e5d00;
@@ -142,7 +141,7 @@ code {
 }
 
 .depth1 {
-  margin: 1em 0 1em 2em;
+  margin: 1em 0 1em 1em;
 }
 
 .depth1 h1 {
@@ -154,22 +153,13 @@ code {
   border-color: #00416e;
   border-width: 2px;
   background-color: #c9e9ff;
-  margin: 1em 0 1em 1em;
 }
 
 .depth2 {
-  margin: 1em 0 1em 3em;
-}
-
-.depth2.header {
   margin: 1em 0 1em 2em;
 }
 
 .depth3 {
-  margin: 1em 0 1em 4em;
-}
-
-.depth3.header {
   margin: 1em 0 1em 3em;
 }
     </style>
@@ -182,7 +172,6 @@ code {
             <% if (s.header || s.name) { %>
               <li>
                 <%
-                  if (s.name) {print("-");}
                   for (var i = 0; i < s.depth; i++) {print("-");}
                 %>
                 <% if (s.header) { %>
@@ -198,7 +187,7 @@ code {
       </nav>
       <div id="sections">
         <% _.each(sections, function(s) { %>
-          <section class="depth<%= s.depth %> <%= s.header ? "header" : "" %>">
+          <section class="depth<%= s.depth %> <%= s.header ? "header" : "" %>" data-module="<%= s.module %>">
           
             <%= s.header ? '<h1 id="header-' + s.header.replace(/ /g, '-') + '">' + s.header + "</h1>" : "" %>
             
