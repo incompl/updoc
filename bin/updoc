@@ -15,7 +15,6 @@ if (!outFile) {
 }
 
 if (!templateFile) {
-  // TODO make this relative... but how
   templateFile = path.join(__dirname, "..", "/templates/default._template");
 }
 
