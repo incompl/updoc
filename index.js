@@ -34,12 +34,12 @@
  * @header Example
  * @demo <a href="example.js">example.js</a> creates <a href="example.html">
  * example.html</a>
- * @bonus this site was created by <a href="site.js">this file</a>
+ * @bonus this site was created by <a href="index.js">this file</a>
  */
 
 /**
- * @module 4download
- * @header Download
+ * @module 4contribute
+ * @header Contribute
  * @description <a href="https://github.com/incompl/updoc">on github</a>
  */
 
