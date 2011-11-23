@@ -23,6 +23,7 @@
  * @header Features
  * @flexible so you can use whatever properties you want
  * @aware of function and var names
+ * @code is organized by modules
  * @templates are easy to create and modify
  * @html allowed in comments
  * @json output if you want it
@@ -43,8 +44,18 @@
  */
 
 /**
+ * @module 5using
+ * @header Using updoc
+ * @description Install updoc like this:
+ * <code>sudo npm install updoc -g</code>
+ * Use updoc like this:
+ * <code>updoc input.js output.html</code>
+ * An optional 3rd argument specifies the template.
+ */
+
+/**
  * not documented
- * @module 5rules
+ * @module 6rules
  * @header Rules
  * @start updoc comments with /** on new line
  * @close updoc comments with &#42;/ on new line
@@ -56,20 +67,14 @@
  */
 
 /**
- * @module 6using
- * @header Using updoc
- * @description You can use updoc like this:
- * <code>node updoc input.js output.html</code>
- * An optional 3rd argument specifies the template.
- *
- */
-
-/**
  * @module 7modules
  * @header Modules
  * @description updoc organizes your documentation by modules. Each comment
  * block can have a &#64;module property. It looks like this:
  * <code>&#64;module app.util.foobar</code>
+ * The function or var name is added to the end of the module if appropriate.
+ * Code of this form has its module set automatically:
+ * <code>foo.bar.bat = function() {} // my module is foo.bar.bat</code>
  * Sections are nested by
  * the module's depth and sorted by name. The sort order follows:
  * <ol>
@@ -77,7 +82,8 @@
  *   <li>alphabetical by name (for functions and vars)</li>
  *   <li>order of appearance in source</li>
  * </ol>
- * If the module property is omitted it is a top-level section.
+ * If the module property is omitted and isn't detected it is a top-level
+ * section.
  */
 
 /**
@@ -89,14 +95,14 @@
  * properties provided in the updoc comments, with a few bonus properties.
  * </p>
 <code>{
-&nbsp;version: '0.1', // updoc version
+&nbsp;version: '0.0.1', // updoc version
 &nbsp;sections: [ // each updoc comment is a section
 &nbsp;&nbsp;{
 &nbsp;&nbsp;  name: 'foo' // var name or function name. may be absent
 &nbsp;&nbsp;  type: 'function', // function or var or other
 &nbsp;&nbsp;  prop: 'val', // &#64;prop val
-&nbsp;&nbsp;  module: 'example.util', // &#64;module example.util
-&nbsp;&nbsp;  depth: 2 // module depth. &#64;module foo.bar.bat is depth 3
+&nbsp;&nbsp;  module: 'example.util.foo', // &#64;module example.util
+&nbsp;&nbsp;  depth: 3 // module depth. &#64;module foo.bar.bat is depth 3
 &nbsp; }
 &nbsp;]
 }</code>
@@ -114,10 +120,22 @@
  * <p>
  * You can view the raw json output by specifying "json" as the output file
  * </p>
- * <code>node updoc example.js json</code>
  */
 
 /**
+ * @module 90highlighting
+ * @header Highlighting
+ * @description
+ * The default template uses
+ * <a href="http://code.google.com/p/google-code-prettify/">prettify</a>.
+ * To get code highlighting, just put prettify.js and prettify.css in the same
+ * directory as your output. Then put code in a code element like this:
+ * <code>&lt;code>function() {}&lt;/code></code>
+ * </p>
+ */
+
+/**
+ * @module 91footer
  * @description Created by <a href="http://incompl.com">Greg Smith</a>
  * at <a href="http://bocoup.com">Bocoup</a>
  */
