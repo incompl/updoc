@@ -8,9 +8,10 @@
  * @header About
  * @description
  * <p>
- * updoc doesn't tell you what to document about your code. You
- * just specify whatever properties you care about, then updoc generates
- * nice-looking documentation for it.
+ * updoc lets you document your code however you want. You provide the
+ * information you care about, then updoc generates
+ * nice-looking documentation for it. You can customize the output using
+ * templates.
  * </p>
  * <p>
  * It's suitable both for internal developer documentation and external
@@ -21,9 +22,8 @@
 /**
  * @module 2features
  * @header Features
- * @flexible so you can use whatever properties you want
- * @aware of function and var names
- * @code is organized by modules
+ * @flexible so you can use it however you want
+ * @aware of function names, var names, and modules
  * @templates are easy to create and modify
  * @html allowed in comments
  * @json output if you want it
@@ -72,16 +72,12 @@
  * @description updoc organizes your documentation by modules. Each comment
  * block can have a &#64;module property. It looks like this:
  * <code>&#64;module app.util.foobar</code>
- * The function or var name is added to the end of the module if appropriate.
- * Code of this form has its module set automatically:
+ * The function or var name is automatically added to the end of the module if
+ * appropriate. Code of this form has its module set automatically:
  * <code>foo.bar.bat = function() {} // my module is foo.bar.bat</code>
- * Sections are nested by
- * the module's depth and sorted by name. The sort order follows:
- * <ol>
- *   <li>alphabetical by module</li>
- *   <li>alphabetical by name (for functions and vars)</li>
- *   <li>order of appearance in source</li>
- * </ol>
+ * However, for now, updoc doesn't try to guess modules in this case:
+ * <code>this.bar.bat = function() {} // my module isn't detected</code>
+ * The output is sorted and nested by module.<br>
  * If the module property is omitted and isn't detected it is a top-level
  * section.
  */
@@ -102,7 +98,7 @@
 &nbsp;&nbsp;  type: 'function', // function or var or other
 &nbsp;&nbsp;  prop: 'val', // &#64;prop val
 &nbsp;&nbsp;  module: 'example.util.foo', // &#64;module example.util
-&nbsp;&nbsp;  depth: 3 // module depth. &#64;module foo.bar.bat is depth 3
+&nbsp;&nbsp;  depth: 3 // module depth. &#64;module foo is depth 1
 &nbsp; }
 &nbsp;]
 }</code>

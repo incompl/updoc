@@ -53,18 +53,34 @@ updoc = function(file, targetFile, templateFile) {
       var blockComment = commentAndNextLine.match(/^\s*\/\*\*[\s\S]*?\*\//gm)[0];
       var properties = blockComment.match(/@[^@]*/g);
       var potentialValue;
-      var potentialModule;
+      
+      var detectedModule = false;
+      var potentialModule = lastLine.match(/^\s*(window\.)?([\w$_.]+)\s+=\s+(.*)/);
+      var module;
+      var restOfModuleLine;
+      
       var blockData = {};
       var moduleData;
       var deleteProps = {};
       
       // module and name for
       //   foo.bar.baz = ...;
-      potentialModule = lastLine.match(/^([\w$_.]+)\s+=\s+(.*)/);
-      if (potentialModule && potentialModule[1] && potentialModule[2]) {
-        blockData.module = potentialModule[1];
-        blockData.name = potentialModule[1].substr(potentialModule[1].lastIndexOf(".") + 1);
-        if (potentialModule[2].match(/function\s*\(/)) {
+      // and
+      //   this.foo = ...;
+      if (potentialModule && potentialModule[3]) {
+        module = potentialModule[2];
+        restOfModuleLine = potentialModule[3];
+        
+        // we're not smart enough to figure out "this yet
+        if (!lastLine.match(/^\s*this\./)) {
+          blockData.module = module;
+          detectedModule = true;
+        }
+        
+        blockData.name = module.substr(module.lastIndexOf(".") + 1);
+        // if this is the module pattern, detected by the (, don't call it a function
+        if (restOfModuleLine.match(/^\s*([^(]|)?\s*function\s*\(/)) {
+            console.log('func');
           blockData.type = "function";
         }
         else {
@@ -86,6 +102,7 @@ updoc = function(file, targetFile, templateFile) {
             blockData.name = potentialValue[1];
           }
         }
+        blockData.type = "function";
       }
       // var name for
       //   var foo = 5;
@@ -111,7 +128,7 @@ updoc = function(file, targetFile, templateFile) {
         property = property.replace(/^[\s\*\/]*$/mg, "");
           
         // get the prop/value info
-        propInfo = property.match(/@(\S*)\s+([\s\S]*)/);
+        propInfo = property.match(/@(\S*)\s*([\s\S]*)/);
         propName = propInfo[1];
         propVal = propInfo[2];
           
@@ -125,6 +142,9 @@ updoc = function(file, targetFile, templateFile) {
         // add number to prop names if there is more than one with same name
         if (propName === "module") {
           blockData.module = propValLines[0];
+        }
+        else if (propName === "name") {
+          blockData.name = propValLines[0];
         }
         else {
           numberedPropName = propName;
@@ -149,7 +169,7 @@ updoc = function(file, targetFile, templateFile) {
       });
       
       // if module wasn't detected, add the name to the provided @module
-      if (!potentialModule && blockData.name) {
+      if (!detectedModule && blockData.name) {
         if (blockData.module) {
           blockData.module += "." + blockData.name;
         }
@@ -172,23 +192,27 @@ updoc = function(file, targetFile, templateFile) {
     
     // Sort the data by module
     json.sections.sort(function(a, b) {
-      if (a.module === b.module) {
-        if (a.name === undefined) {
+      var aModule = a.module ? a.module.toLowerCase() : null;
+      var bModule = b.module ? b.module.toLowerCase() : null;
+      var aName = a.name ? a.name.toLowerCase() : null;
+      var bName = b.name ? b.name.toLowerCase() : null;
+      if (aModule === bModule) {
+        if (aName === undefined) {
           return -1;
         }
-        if (b.name === undefined) {
+        if (bName === undefined) {
           return 1;
         }
-        return a.name > b.name ? 1 : -1;
+        return aName > bName ? 1 : -1;
       }
-      else if (a.module === undefined) {
+      else if (aModule === undefined) {
         return -1;
       }
-      else if (b.module === undefined) {
+      else if (bModule === undefined) {
         return 1;
       }
       else {
-        return a.module > b.module ? 1 : -1;
+        return aModule > bModule ? 1 : -1;
       }
     });
     

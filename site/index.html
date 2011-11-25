@@ -35,7 +35,7 @@ section {
 
 h1, h2, h3 {
   text-shadow: 1px 1px 0 #838383;
-  margin: 0 0 .2em;
+  margin: .2em 0;
 }
 
 h1 {
@@ -72,7 +72,7 @@ ul {
 
 nav {
   float: left;
-  width: 150px;
+  width: 180px;
   padding: 8px;
   background-color: #dce8f1;
   border-radius: 10px;
@@ -89,7 +89,7 @@ nav ul {
 }
 
 #sections {
-  margin-left: 180px;
+  margin-left: 205px;
 }
 
 footer {
@@ -105,7 +105,6 @@ footer a:link, footer a:visited {
 code {
   display: block;
   font-family: monospace;
-  font-size: 1.3em;
   white-space: pre;
   margin: .3em 0;
   padding: .3em .5em;
@@ -181,7 +180,7 @@ code {
           
             
               <li>
-                -
+                - 
                 
                   <a href="#header-About">About</a>
                 
@@ -191,7 +190,7 @@ code {
           
             
               <li>
-                -
+                - 
                 
                   <a href="#header-Features">Features</a>
                 
@@ -201,7 +200,7 @@ code {
           
             
               <li>
-                -
+                - 
                 
                   <a href="#header-Example">Example</a>
                 
@@ -211,9 +210,9 @@ code {
           
             
               <li>
-                -
+                - 
                 
-                  <a href="#header-Download">Download</a>
+                  <a href="#header-Contribute">Contribute</a>
                 
                 
               </li>
@@ -221,7 +220,7 @@ code {
           
             
               <li>
-                -
+                - 
                 
                   <a href="#header-Using-updoc">Using updoc</a>
                 
@@ -231,7 +230,7 @@ code {
           
             
               <li>
-                -
+                - 
                 
                   <a href="#header-Rules">Rules</a>
                 
@@ -241,7 +240,7 @@ code {
           
             
               <li>
-                -
+                - 
                 
                   <a href="#header-Modules">Modules</a>
                 
@@ -251,7 +250,7 @@ code {
           
             
               <li>
-                -
+                - 
                 
                   <a href="#header-Templates">Templates</a>
                 
@@ -261,7 +260,7 @@ code {
           
             
               <li>
-                -
+                - 
                 
                   <a href="#header-Highlighting">Highlighting</a>
                 
@@ -318,9 +317,10 @@ code {
             </ul>
             
             <div class="description"><p>
-updoc doesn't tell you what to document about your code. You
-just specify whatever properties you care about, then updoc generates
-nice-looking documentation for it.
+updoc lets you document your code however you want. You provide the
+information you care about, then updoc generates
+nice-looking documentation for it. You can customize the output using
+templates.
 </p>
 <p>
 It's suitable both for internal developer documentation and external
@@ -348,7 +348,7 @@ api documentation.
                     <span class="property">
                       flexible
                     </span>
-                    so you can use whatever properties you want
+                    so you can use it however you want
                   </li>
                 
               
@@ -357,16 +357,7 @@ api documentation.
                     <span class="property">
                       aware
                     </span>
-                    of function and var names
-                  </li>
-                
-              
-                
-                  <li>
-                    <span class="property">
-                      code
-                    </span>
-                    is organized by modules
+                    of function names, var names, and modules
                   </li>
                 
               
@@ -434,7 +425,7 @@ example.html</a>
                     <span class="property">
                       bonus
                     </span>
-                    this site was created by <a href="site.js">this file</a>
+                    this site was created by <a href="index.js">this file</a>
                   </li>
                 
               
@@ -446,9 +437,9 @@ example.html</a>
             
           </section>
         
-          <section class="depth1 header" data-module="4download">
+          <section class="depth1 header" data-module="4contribute">
           
-            <h1 id="header-Download">Download</h1>
+            <h1 id="header-Contribute">Contribute</h1>
             
             
             
@@ -598,16 +589,12 @@ are included in that property
             <div class="description">updoc organizes your documentation by modules. Each comment
 block can have a &#64;module property. It looks like this:
 <code>&#64;module app.util.foobar</code>
-The function or var name is added to the end of the module if appropriate.
-Code of this form has its module set automatically:
+The function or var name is automatically added to the end of the module if
+appropriate. Code of this form has its module set automatically:
 <code>foo.bar.bat = function() {} // my module is foo.bar.bat</code>
-Sections are nested by
-the module's depth and sorted by name. The sort order follows:
-<ol>
-<li>alphabetical by module</li>
-<li>alphabetical by name (for functions and vars)</li>
-<li>order of appearance in source</li>
-</ol>
+However, for now, updoc doesn't try to guess modules in this case:
+<code>this.bar.bat = function() {} // my module isn't detected</code>
+The output is sorted and nested by module.<br>
 If the module property is omitted and isn't detected it is a top-level
 section.</div>
             
@@ -645,7 +632,7 @@ properties provided in the updoc comments, with a few bonus properties.
 &nbsp;&nbsp;  type: 'function', // function or var or other
 &nbsp;&nbsp;  prop: 'val', // &#64;prop val
 &nbsp;&nbsp;  module: 'example.util.foo', // &#64;module example.util
-&nbsp;&nbsp;  depth: 3 // module depth. &#64;module foo.bar.bat is depth 3
+&nbsp;&nbsp;  depth: 3 // module depth. &#64;module foo is depth 1
 &nbsp; }
 &nbsp;]
 }</code>
@@ -695,7 +682,7 @@ directory as your output. Then put code in a code element like this:
             
           </section>
         
-          <section class="depth1 " data-module="91footer">
+          <section class="depth1 header" data-module="91footer">
           
             
             
