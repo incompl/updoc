@@ -46,11 +46,14 @@
 /**
  * @module 5using
  * @header Using updoc
- * @description Install updoc like this:
+ * @description First install <a href="http://nodejs.org/">node</a>
+ * and <a href="http://npmjs.org/">npm</a> if you don't have them.
+ * Then install updoc like this:
  * <code>sudo npm install updoc -g</code>
  * Use updoc like this:
  * <code>updoc input.js output.html</code>
  * An optional 3rd argument specifies the template.
+ * <br>
  */
 
 /**
@@ -71,9 +74,15 @@
  * @header Modules
  * @description updoc organizes your documentation by modules. Each comment
  * block can have a &#64;module property. It looks like this:
- * <code>&#64;module app.util.foobar</code>
+ * <code>&#64;module app.util</code>
  * The function or var name is automatically added to the end of the module if
- * appropriate. Code of this form has its module set automatically:
+ * appropriate. For example:
+<code>/&#42;&#42;
+&nbsp;&#42; &#64;module foo.bar
+&nbsp;&#42;/
+function bat() {} // my module is foo.bar.bat
+</code>
+ * Code of this form has its module set automatically:
  * <code>foo.bar.bat = function() {} // my module is foo.bar.bat</code>
  * However, for now, updoc doesn't try to guess modules in this case:
  * <code>this.bar.bat = function() {} // my module isn't detected</code>
