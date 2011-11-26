@@ -72,8 +72,8 @@
 /**
  * @module 7modules
  * @header Modules
- * @description updoc organizes your documentation by modules. Each comment
- * block can have a &#64;module property. It looks like this:
+ * @description updoc organizes your documentation by modules. Each updoc
+ * comment can have a &#64;module property. It looks like this:
  * <code>&#64;module app.util</code>
  * The function or var name is automatically added to the end of the module if
  * appropriate. For example:
@@ -86,8 +86,10 @@ function bat() {} // my module is foo.bar.bat
  * <code>foo.bar.bat = function() {} // my module is foo.bar.bat</code>
  * However, for now, updoc doesn't try to guess modules in this case:
  * <code>this.bar.bat = function() {} // my module isn't detected</code>
+ * Modules are only detected in the line after an updoc comment. No comment,
+ * no output.<br>
  * The output is sorted and nested by module.<br>
- * If the module property is omitted and isn't detected it is a top-level
+ * If the module property is omitted and isn't detected you get a top-level
  * section.
  */
 
