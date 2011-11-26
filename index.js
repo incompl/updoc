@@ -54,10 +54,31 @@
  * <code>updoc input.js output.html</code>
  * An optional 3rd argument specifies the template.
  * <br>
+ * In your JavaScript code, put comments that look like this:
+<code>/&#42;&#42;
+&nbsp;&#42; &#64;param x value to be returned
+&nbsp;&#42; &#64;foobar a property I made up
+&nbsp;&#42;/
+function bat(x) {return x;}
+</code>
+ * You can put whatever properties you want. There are a couple special ones:
+ * <ul>
+ * <li>&#64;<a href="#header-Modules">module</a> is a special property for organizing your
+ * documentation.</li>
+ * <li>&#64;name overrides the detected function or variable name</li>
+ * <li>&#64;type overrides the detected type: 'function' 'var' or 'other'</li>
+ * <li>&#64;depth overrides the module depth</li>
+ * </ul>
+ * That's all the special properties. However, the default template displays these two
+ * properties differently:
+ * <ul>
+ * <li>&#64;header formats the entire section like a header. can be blank or contain a string</li>
+ * <li>&#64;description this text is shown with a lighter background below other properties</li>
+ * </ul>
  */
 
 /**
- * not documented
+ * this line is not in the output
  * @module 6rules
  * @header Rules
  * @start updoc comments with /** on new line
@@ -92,12 +113,12 @@ var dog = {
  * Code of this form has its module set automatically:
  * <code>foo.bar.bat = function() {} // my module is foo.bar.bat</code>
  * However, for now, updoc doesn't try to guess modules in this case:
- * <code>this.bar.bat = function() {} // my module isn't detected</code>
+ * <code>this.bar = function() {} // my module isn't detected</code>
  * Also, the window object isn't included in your module:
  * <code>window.bar.bat = function() {} // my module is bar.bat</code>
- * Modules are only detected in the line after an updoc comment. There isn't
- * a full semantic awareness of your code, just a static analysis of one line
- * per comment.<br>
+ * Modules are only automatically detected in the line after an updoc comment.
+ * There isn't a full semantic awareness of your code, just a static analysis
+ * of one line per comment.<br>
  * If the module property is omitted and isn't detected you get a top-level
  * section.
  */
@@ -106,6 +127,11 @@ var dog = {
  * @module 8templates
  * @header Templates
  * @description
+ * <p>
+ * updoc currently uses
+ * <a href="http://documentcloud.github.com/underscore/#template">underscore
+ * templates</a>.
+ * </p>
  * <p>
  * Templates consume a json file. This json file is just the
  * properties provided in the updoc comments, with a few bonus properties.
@@ -122,17 +148,6 @@ var dog = {
 &nbsp; }
 &nbsp;]
 }</code>
- * <p>
- * No other properties are special, but the template can decide to make them
- * special. For example, the default template has special formatting for
- * &#64;header and &#64;description. These are not treated specially by
- * the updoc code itself.
- * </p>
- * <p>
- * updoc currently uses
- * <a href="http://documentcloud.github.com/underscore/#template">underscore
- * templates</a>.
- * </p>
  * <p>
  * You can view the raw json output by specifying "json" as the output file
  * </p>
