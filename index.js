@@ -72,7 +72,7 @@
 /**
  * @module 7modules
  * @header Modules
- * @description updoc organizes your documentation by modules. Each updoc
+ * @description updoc sorts and nests your documentation by modules. Each updoc
  * comment can have a &#64;module property. It looks like this:
  * <code>&#64;module app.util</code>
  * The function or var name is automatically added to the end of the module if
@@ -81,14 +81,23 @@
 &nbsp;&#42; &#64;module foo.bar
 &nbsp;&#42;/
 function bat() {} // my module is foo.bar.bat
+&nbsp;
+var dog = {
+&nbsp;  /&#42;&#42;
+&nbsp;   &#42; &#64;module dog
+&nbsp;   &#42;/
+&nbsp;  bark: function() {} // my module is dog.bark
+};
 </code>
  * Code of this form has its module set automatically:
  * <code>foo.bar.bat = function() {} // my module is foo.bar.bat</code>
  * However, for now, updoc doesn't try to guess modules in this case:
  * <code>this.bar.bat = function() {} // my module isn't detected</code>
- * Modules are only detected in the line after an updoc comment. No comment,
- * no output.<br>
- * The output is sorted and nested by module.<br>
+ * Also, the window object isn't included in your module:
+ * <code>window.bar.bat = function() {} // my module is bar.bat</code>
+ * Modules are only detected in the line after an updoc comment. There isn't
+ * a full semantic awareness of your code, just a static analysis of one line
+ * per comment.<br>
  * If the module property is omitted and isn't detected you get a top-level
  * section.
  */
