@@ -1,85 +1,57 @@
 /**
- * @header updoc
- * @description the flexible javascript documentation generator 
+ * @_page_title updoc
+ * @_page_description the flexible javascript documentation generator
+ * @_page_compact_index
+ * @_page_no_sort
  */
 
 /**
- * @module 1info
  * @header About
  * @description
  * <p>
- * updoc lets you document your code however you want. You provide the
- * information you care about, then updoc generates
- * nice-looking documentation for it. You can customize the output using
- * templates.
+ * updoc converts special comments in your code into nice-looking documentation.
+ * You can document whatever information you want, and you can customize the
+ * output with templates.
  * </p>
  * <p>
- * It's suitable both for internal developer documentation and external
- * api documentation.
+ * Contribute on <a href="https://github.com/incompl/updoc">github</a>
  * </p>
  */
 
 /**
- * @module 2features
- * @header Features
- * @flexible so you can use it however you want
- * @aware of function names, var names, and modules
- * @templates are easy to create and modify
- * @html allowed in comments
- * @json output if you want it
- */
-
-/**
- * @module 3example
- * @header Example
+ * @header Examples
  * @demo <a href="example.js">example.js</a> creates <a href="example.html">
  * example.html</a>
+ * @boxbox uses updoc for its
+ * <a href="http://incompl.github.com/boxbox/updoc.html">api documentation</a>
  * @bonus this site was created by <a href="index.js">this file</a>
  */
 
 /**
- * @module 4contribute
- * @header Contribute
- * @description <a href="https://github.com/incompl/updoc">on github</a>
- */
-
-/**
- * @module 5using
- * @header Using updoc
- * @description First install <a href="http://nodejs.org/">node</a>
+ * @header Getting Started
+ * @description
+ * 
+ * First install <a href="http://nodejs.org/">node</a>
  * and <a href="http://npmjs.org/">npm</a> if you don't have them.
  * Then install updoc like this:
  * <code>sudo npm install updoc -g</code>
  * Use updoc like this:
  * <code>updoc input.js output.html</code>
- * An optional 3rd argument specifies the template.
- * <br>
+ * An optional 3rd argument specifies the template.<br>
  * In your JavaScript code, put comments that look like this:
 <code>/&#42;&#42;
-&nbsp;&#42; &#64;param x value to be returned
-&nbsp;&#42; &#64;foobar a property I made up
+&nbsp;&#42; &#64;secure true
 &nbsp;&#42;/
-function bat(x) {return x;}
+ function multiply(a, b) {return a * b;}
 </code>
- * You can put whatever properties you want. There are a couple special ones:
- * <ul>
- * <li>&#64;<a href="#header-Modules">module</a> is a special property for organizing your
- * documentation.</li>
- * <li>&#64;name overrides the detected function or variable name</li>
- * <li>&#64;type overrides the detected type: 'function' 'var' or 'other'</li>
- * <li>&#64;depth overrides the module depth</li>
- * </ul>
- * That's all the special properties. However, the default template displays these two
- * properties differently:
- * <ul>
- * <li>&#64;header formats the entire section like a header. can be blank or contain a string</li>
- * <li>&#64;description this text is shown with a lighter background below other properties</li>
- * </ul>
+ * This comment says that the function "multiply" has a property "secure" with
+ * the value "true". You can put whatever properties you want.
+ * The function name and parameters are detected and included in the
+ * documentation automatically.
  */
 
 /**
  * this line is not in the output
- * @module 6rules
  * @header Rules
  * @start updoc comments with /** on new line
  * @close updoc comments with &#42;/ on new line
@@ -91,21 +63,54 @@ function bat(x) {return x;}
  */
 
 /**
- * @module 7modules
+ * @header Special Properties
+ * @description
+ * Special updoc properties start with an underscore.
+ * <ul>
+ * <li>&#64;<a href="#header-Modules">_module</a> is a special property for organizing your
+ * documentation.</li>
+ * <li>&#64;_depth overrides the module depth</li>
+ * <li>&#64;_name overrides the detected function or variable name</li>
+ * <li>&#64;_params overrides the detected parameter list</li>
+ * <li>&#64;_type overrides the detected type: 'function' 'var' or 'other'</li>
+ * </ul>
+ * 
+ * <h2>properties with special formatting</h2>
+ * The following properties aren't "special" but the default template displays
+ * them differently:
+ * <ul>
+ * <li>&#64;header is used in the table of contents if no name is found</li>
+ * <li>&#64;description text is shown below other properties</li>
+ * </ul>
+ * 
+ * <h2>updoc page properties</h2>
+ * If an updoc comment contains any of these properties, that comment isn't output
+ * and instead defines information about the whole page.
+ * <ul>
+ * <li>&#64;_page_title title for the whole page</li>
+ * <li>&#64;_page_description text shown under the title</li>
+ * <li>&#64;_page_css external css file to include</li>
+ * <li>&#64;_page_compact_index displays the deepest tier of your index
+ * inline instead of as list items</li>
+ * <li>&#64;_page_no_sort do not sort the output</li>
+ * </ul>
+ */
+
+/**
  * @header Modules
  * @description updoc sorts and nests your documentation by modules. Each updoc
- * comment can have a &#64;module property. It looks like this:
- * <code>&#64;module app.util</code>
+ * comment can have a &#64;_module property. It looks like this:
+ * <code>&#64;_module app.util</code>
  * The function or var name is automatically added to the end of the module if
  * appropriate. For example:
 <code>/&#42;&#42;
-&nbsp;&#42; &#64;module foo.bar
+&nbsp;&#42; &#64;_module foo.bar
 &nbsp;&#42;/
 function bat() {} // my module is foo.bar.bat
 &nbsp;
 var dog = {
 &nbsp;  /&#42;&#42;
-&nbsp;   &#42; &#64;module dog
+&nbsp;   &#42; &#64;_module dog
 &nbsp;   &#42;/
 &nbsp;  bark: function() {} // my module is dog.bark
 };
@@ -124,7 +129,6 @@ var dog = {
  */
 
 /**
- * @module 8templates
  * @header Templates
  * @description
  * <p>
@@ -133,18 +137,21 @@ var dog = {
  * templates</a>.
  * </p>
  * <p>
- * Templates consume a json file. This json file is just the
+ * Templates consume a json file. This json file contains the
  * properties provided in the updoc comments, with a few bonus properties.
  * </p>
 <code>{
 &nbsp;version: '0.0.1', // updoc version
+&nbsp;title: 'updoc', // value of &#64;_page_title
+&nbsp;...
 &nbsp;sections: [ // each updoc comment is a section
 &nbsp;&nbsp;{
-&nbsp;&nbsp;  name: 'foo' // var name or function name. may be absent
-&nbsp;&nbsp;  type: 'function', // function or var or other
-&nbsp;&nbsp;  prop: 'val', // &#64;prop val
-&nbsp;&nbsp;  module: 'example.util.foo', // &#64;module example.util
-&nbsp;&nbsp;  depth: 3 // module depth. &#64;module foo is depth 1
+&nbsp;&nbsp;  _name: 'foo' // var name or function name
+&nbsp;&nbsp;  _type: 'function', // function or var or other
+&nbsp;&nbsp;  _params: 'x, y', // function parameters
+&nbsp;&nbsp;  _module: 'example.util.foo', // full module name
+&nbsp;&nbsp;  _depth: 3 // module nesting level
+&nbsp;&nbsp;  awesome: 'extremely' // custom property
 &nbsp; }
 &nbsp;]
 }</code>
@@ -153,8 +160,8 @@ var dog = {
  * </p>
  */
 
+
 /**
- * @module 90highlighting
  * @header Highlighting
  * @description
  * The default template uses
@@ -166,7 +173,6 @@ var dog = {
  */
 
 /**
- * @module 91footer
  * @description Created by <a href="http://incompl.com">Greg Smith</a>
  * at <a href="http://bocoup.com">Bocoup</a>
  */
