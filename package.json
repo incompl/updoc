@@ -3,7 +3,7 @@
   "name": "updoc",
   "description": "the flexible javascript documentation generator",
   "homepage": "http://incompl.github.com/updoc/",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "repository": {
     "type": "git",
     "url": "git@github.com:incompl/updoc.git"

@@ -359,7 +359,7 @@ module.exports = function(inputFile, outputFile, templateFile) {
     
     // Apply the template and write out HTML
     fileData = fs.readFileSync(templateFile, "utf8");
-    html = _.template(data, json);
+    html = _.template(fileData, json);
     
     fs.writeFileSync(outputFile, html);
     console.log("Success! Documentation created at " + outputFile);
