@@ -1,0 +1,54 @@
+{
+  "sections":[
+    {
+      "_depth": 0,
+      "_type": "other"
+    },
+    {
+      "_depth": 0,
+      "_type": "function"
+    },
+    {
+      "_name": "bar",
+      "_module": "bar",
+      "_depth": 1,
+      "_type": "function"
+    },
+    {
+      "_name": "bar",
+      "_module": "bar",
+      "_depth": 1,
+      "_type": "function"
+    },
+    {
+      "_name": "bar",
+      "_module": "bar",
+      "_depth": 1,
+      "_type": "function"
+    },
+    {
+      "_name": "bar",
+      "_module": "bar",
+      "_depth": 1,
+      "_type": "function"
+    },
+    {
+      "_name": "bar",
+      "_module": "bar",
+      "_depth": 1,
+      "_type": "var"
+    },
+    {
+      "_name": "bar",
+      "_module": "bar",
+      "_depth": 1,
+      "_type": "other"
+    },
+    {
+      "_name": "bar",
+      "_module": "d.bar",
+      "_depth": 2,
+      "_type": "function"
+    }
+  ]
+}

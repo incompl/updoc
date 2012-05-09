@@ -1,0 +1,24 @@
+{"sections": [
+  {
+    "_name": "bla"
+  },
+  {
+    "_type": "other"
+  },
+  {
+    "_depth": 17
+  },
+  {
+    "_name": "fug",
+    "_module": "dug.lug.fug"
+  },
+  {
+    "_name": "fug",
+    "_type": "whatever",
+    "_module": "eeg.lug.fug",
+    "_depth": 0
+  },
+  {
+    "_params":"foo"
+  }
+]}

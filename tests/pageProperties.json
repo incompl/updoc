@@ -1,0 +1,7 @@
+{
+  "title": "my title",
+  "description": "my description",
+  "custom": "custom value",
+  "compact_index": true,
+  "sections":[]
+}

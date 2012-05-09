@@ -1,0 +1,16 @@
+{
+  "sections":[
+    {
+      "_name": "burp",
+      "_params": ""
+    },
+    {
+      "_name": "consume",
+      "_params": "dog, cat"
+    },
+    {
+      "_name": "eat",
+      "_params": "dog"
+    }
+  ]
+}

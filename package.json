@@ -3,13 +3,13 @@
   "name": "updoc",
   "description": "the flexible javascript documentation generator",
   "homepage": "http://incompl.github.com/updoc/",
-  "version": "0.0.1",
+  "version": "0.2.2",
   "repository": {
     "type": "git",
     "url": "git@github.com:incompl/updoc.git"
   },
   "engines": {
-    "node": "~0.5.8 || 0.5.8-pre"
+    "node": "*"
   },
   "dependencies": {
     "underscore": "*"

@@ -1,0 +1,58 @@
+{
+  "sections":[
+    {
+      "_name": "foo",
+      "_module": "foo",
+      "_depth": 1,
+      "_type": "var"
+    },
+    {
+      "_name": "bar",
+      "_module": "foo.bar",
+      "_depth": 2,
+      "_type": "other"
+    },
+    {
+      "_name": "bat",
+      "_module": "foo.bar.bat",
+      "_depth": 3,
+      "_type": "function"
+    },
+    {
+      "_name": "gar",
+      "_module": "gar",
+      "_depth": 1,
+      "_type": "var"
+    },
+    {
+      "_name": "a",
+      "_module": "gar.a",
+      "_depth": 2,
+      "_type": "other"
+    },
+    {
+      "_name": "bat",
+      "_module": "gar.a.bat",
+      "_depth": 3,
+      "_type": "function"
+    },
+    {
+      "_name": "cat",
+      "_module": "gar.a.cat",
+      "_depth": 3,
+      "_type": "function"
+    },
+    {
+      "_name": "b",
+      "_module": "gar.b",
+      "_depth": 2,
+      "_type": "other"
+    },
+    {
+      "_name": "ape",
+      "_module": "gar.b.ape",
+      "_depth": 3,
+      "_type": "function"
+    }
+  ]
+}

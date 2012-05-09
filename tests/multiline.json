@@ -1,0 +1,9 @@
+{
+  "sections": [
+    {
+      "prop": "this property has\nmultiple lines",
+      "_depth": 0,
+      "_type": "other"
+    }
+  ]
+}

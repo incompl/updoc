@@ -2,13 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>updoc</title>
+    <title><%= title %></title>
     <script src="prettify.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="prettify.css">
     <style>
 body {
   padding: 0;
-  margin: 1em 0 0;
+  margin: 1em 1em 0;
   font-family: sans-serif;
   line-height: 1.4em;
 }
@@ -16,26 +17,39 @@ body {
 a:link {
   color: #000498;
 }
-a:hover {
-  color: #4549ff;
-}
 a:visited {
   color: black;
+}
+a:hover {
+  color: #4549ff;
 }
 a:active {
   color: black;
 }
 
+header {
+  margin: 0 0 1em;
+}
+
+header a {
+  text-decoration: none;
+}
+
+header h1 {
+  margin: 1em 0;
+}
+
 section {
-  padding: .6em 1em .4em;
+  padding: .5em 1em;
   margin: 1em;
-  background-color: #dce8f1;
-  border-radius: 10px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #e2e3ec;
 }
 
 h1, h2, h3 {
-  text-shadow: 1px 1px 0 #838383;
-  margin: .2em 0;
+  margin: 6px 0 .6em;
+  font-family: serif;
 }
 
 h1 {
@@ -44,6 +58,7 @@ h1 {
 
 h2 {
   font-size: 1.4em;
+  margin: .4em 0 .8em;
 }
 
 h3 {
@@ -51,7 +66,7 @@ h3 {
 }
 
 p {
-  margin: .4em 0;
+  margin: .5em 0;
 }
 
 ul {
@@ -59,37 +74,39 @@ ul {
 }
 
 .description {
-  background-color: rgba(255, 255, 255, .5);
-  border-radius: 5px;
-  padding: .3em .5em;
-  margin: .5em 0 .3em;
+  margin: .5em 0;
 }
 
 #content {
-  width: 900px;
   margin: 0 auto;
+  max-width: 800px;
 }
 
 nav {
-  float: left;
-  width: 180px;
-  padding: 8px;
-  background-color: #dce8f1;
-  border-radius: 10px;
-  border-style: none solid solid none;
-  border-width: 2px;
-  border-color: #8895a0;
+  padding: .3em;
+}
+
+nav.compact {
+  line-height: 2em;
+  background-color: #e2e3ec;
 }
 
 nav ul {
   padding: 2px 7px;
   list-style-type: none;
-  background-color: rgba(255, 255, 255, .5);
-  border-radius: 5px;
 }
 
-#sections {
-  margin-left: 205px;
+nav.compact ul {
+  background-color: transparent;
+}
+
+nav.compact ul li {
+  font-weight: bold;
+}
+
+.inlineIndexItem {
+  padding: .3em .2em;
+  background-color: white;
 }
 
 footer {
@@ -103,55 +120,39 @@ footer a:link, footer a:visited {
 }
 
 code {
+  background-color: #eee;
   display: block;
   font-family: monospace;
   white-space: pre;
-  margin: .3em 0;
+  margin: .7em;
   padding: .3em .5em;
-  background-color: rgba(255, 255, 255, .8);
-  border-radius: 5px;
   color: #1f1f1f;
 }
 
-.header {
-  border-style: none solid solid none;
-  border-width: 2px;
-  border-color: #8895a0;
+ul.properties {
+  list-style-type: none;
+  padding: 0 0 0 1em;
+}
+
+ul.properties li {
+  margin: .3em 0;
 }
 
 .property {
   font-weight: bold;
+  font-family: serif;
+  font-size: 1.2em;
 }
 
 .depth0 {
   margin: 1em 0em;
-}
-
-.depth0 h1 {
-  text-shadow: 1px 1px 0 #cc7800;
-}
-
-.depth0.header {
-  border-style: none solid solid none;
-  border-width: 2px;
-  border-color: #9e5d00;
-  border-radius: 20px;
-  background-color: #ffc571;
+  border-color: #B2B3BB;
+  border-width: 4px;
 }
 
 .depth1 {
   margin: 1em 0 1em 1em;
-}
-
-.depth1 h1 {
-  text-shadow: 1px 1px 0 #005896;
-}
-
-.depth1.header {
-  border-style: none solid solid none;
-  border-color: #00416e;
-  border-width: 2px;
-  background-color: #c9e9ff;
+  border-color: #CECFD7;
 }
 
 .depth2 {
@@ -162,55 +163,64 @@ code {
   margin: 1em 0 1em 3em;
 }
     </style>
+    <% if (css) { %>
+      <link rel="stylesheet" href="<%= css %>"></style>
+    <% } %>
   </head>
   <body>
     <div id="content">
-      <nav>
+      <header>
+        <h1>
+          <a href="/">
+            <%= title %>
+          </a>
+        </h2>
+        <%= description %>
+      </header>
+      <nav class="<%= compact_index ? "compact" : ""%>">
         <ul>
           <% _.each(sections, function(s) { %>
-            <% if (s.header || s.name) { %>
-              <li>
-                <%
-                  for (var i = 0; i < s.depth; i++) {print("- ");}
-                %>
+            <% if (s.header || s._name) { %>
+              <%= compact_index && s._depth === deepest_depth ? "" : "<li>"%>
+                <% if (!compact_index || s._depth !== deepest_depth) { %>
+                  <% for (var i = shallowest_depth; i < s._depth; i++) {print("- ");} %>
+                <% } %>
                 <% if (s.header) { %>
-                  <a href="#header-<%= s.header.replace(/ /g, '-') %>"><%= s.header %></a>
+                  <a href="#header-<%= s.header.replace(/ /g, '-') %>" class="<% if (compact_index && s._depth === deepest_depth) print("inlineIndexItem") %>"><%= s.header %></a>
                 <% } %>
-                <% if (!s.header && s.name) { %>
-                  <a href="#name-<%= s.name %>"><%= s.name %></a>
+                <% if (!s.header && s._name) { %>
+                  <a href="#name-<%= s._name %>" class="<% if (compact_index && s._depth === deepest_depth) print("inlineIndexItem") %>"><%= s._name %></a>
                 <% } %>
-              </li>
+              <%= compact_index && s._depth === deepest_depth ? "" : "</li>"%>
             <% } %>
           <% }); %>
         </ul>
       </nav>
       <div id="sections">
         <% _.each(sections, function(s) { %>
-          <section class="depth<%= s.depth %> <%= s.header !== "undefined" ? "header" : "" %>" data-module="<%= s.module %>">
+        
+          <section class="depth<%= s._depth %> <%= s.header !== "undefined" ? "header" : "" %>" data-module="<%= s._module %>">
           
             <%= s.header ? '<h1 id="header-' + s.header.replace(/ /g, '-') + '">' + s.header + "</h1>" : "" %>
             
-            <% if (s.name) { %>
-              <h2 id="name-<%= s.name %>">
-                <%= s.type === "function" ? "function" : "" %>
-                                
-                <%= s.name %>
+            <% if (s._name) { %>
+              <h2 id="name-<%= s._name %>">
+                <%= (s._type === "function" ? "." : "") %><%= s._name %><%= (s._type === "function" ? "( " + (s._params ? s._params : "") + " )" : "") %>
               </h2>
             <% } %>
             
-            <ul>
+            <ul class="properties">
               <% _.each(s, function(val, prop) { %>
                 <% if (prop !== "header" &&
                        prop !== "description" &&
-                       prop !== "depth" &&
-                       prop !== "module" &&
-                       prop !== "type" &&
-                       prop !== "name") { %>
+                       prop !== "_depth" &&
+                       prop !== "_module" &&
+                       prop !== "_type" &&
+                       prop !== "_name" &&
+                       prop !== "_params") { %>
                   <li>
-                    <span class="property">
-                      <%= prop %>
-                    </span>
-                    <%= val %>
+                    <span class="property"><%= prop %></span>
+                    <span><%= val %></span>
                   </li>
                 <% } %>
               <% }); %>
@@ -223,7 +233,7 @@ code {
       </div>
     </div>
     <footer>
-      generated by <a href="https://github.com/incompl/updoc">updoc</a> <%= version %>
+      generated by <a href="http://incompl.github.com/updoc/">updoc</a> <%= version %>
     </footer>
     <script>
 (function() {
