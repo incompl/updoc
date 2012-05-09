@@ -24,6 +24,9 @@ module.exports = function(inputFile, outputFile, templateFile) {
   
   // shared :|
   var i;
+
+  var html;
+  var fileData;
   
   var returnValue;
   
@@ -84,7 +87,7 @@ module.exports = function(inputFile, outputFile, templateFile) {
   
   // for each updoc comment...
   _.each(updocComments, function(commentAndNextLine) {
-    
+
     // the data for this comment that will be in the output json
     var sectionData = {};
     
@@ -327,7 +330,7 @@ module.exports = function(inputFile, outputFile, templateFile) {
       else {
         return aModule > bModule ? 1 : -1;
       }
-  });
+    });
   }
   
   // page defaults
@@ -355,25 +358,11 @@ module.exports = function(inputFile, outputFile, templateFile) {
   else if (outputFile !== "dry") {
     
     // Apply the template and write out HTML
-    fs.readFile(templateFile, "utf8", function (err, data) {
-      var html;
-      
-      if (err) {
-        console.log(err);
-        return;
-      }
-      
-      html = _.template(data, json);
-      
-      fs.writeFile(outputFile, html, function(err) {
-        if (err) {
-          console.log(err);
-        }
-        else {
-          console.log("Success! Documentation created at " + outputFile);
-        }
-      }); 
-    });
+    fileData = fs.readFileSync(templateFile, "utf8");
+    html = _.template(data, json);
+    
+    fs.writeFileSync(outputFile, html);
+    console.log("Success! Documentation created at " + outputFile);
   
   }
   
