@@ -2,13 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>updoc</title>
+    <title>Change Title with @_page_title property</title>
     <script src="prettify.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="prettify.css">
     <style>
 body {
   padding: 0;
-  margin: 1em 0 0;
+  margin: 1em 1em 0;
   font-family: sans-serif;
   line-height: 1.4em;
 }
@@ -16,26 +17,39 @@ body {
 a:link {
   color: #000498;
 }
-a:hover {
-  color: #4549ff;
-}
 a:visited {
   color: black;
+}
+a:hover {
+  color: #4549ff;
 }
 a:active {
   color: black;
 }
 
+header {
+  margin: 0 0 1em;
+}
+
+header a {
+  text-decoration: none;
+}
+
+header h1 {
+  margin: 1em 0;
+}
+
 section {
-  padding: .6em 1em .4em;
+  padding: .5em 1em;
   margin: 1em;
-  background-color: #dce8f1;
-  border-radius: 10px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #e2e3ec;
 }
 
 h1, h2, h3 {
-  text-shadow: 1px 1px 0 #838383;
-  margin: .2em 0;
+  margin: 6px 0 .6em;
+  font-family: serif;
 }
 
 h1 {
@@ -44,6 +58,7 @@ h1 {
 
 h2 {
   font-size: 1.4em;
+  margin: .4em 0 .8em;
 }
 
 h3 {
@@ -51,7 +66,7 @@ h3 {
 }
 
 p {
-  margin: .4em 0;
+  margin: .5em 0;
 }
 
 ul {
@@ -59,37 +74,39 @@ ul {
 }
 
 .description {
-  background-color: rgba(255, 255, 255, .5);
-  border-radius: 5px;
-  padding: .3em .5em;
-  margin: .5em 0 .3em;
+  margin: .5em 0;
 }
 
 #content {
-  width: 900px;
   margin: 0 auto;
+  max-width: 800px;
 }
 
 nav {
-  float: left;
-  width: 180px;
-  padding: 8px;
-  background-color: #dce8f1;
-  border-radius: 10px;
-  border-style: none solid solid none;
-  border-width: 2px;
-  border-color: #8895a0;
+  padding: .3em;
+}
+
+nav.compact {
+  line-height: 2em;
+  background-color: #e2e3ec;
 }
 
 nav ul {
   padding: 2px 7px;
   list-style-type: none;
-  background-color: rgba(255, 255, 255, .5);
-  border-radius: 5px;
 }
 
-#sections {
-  margin-left: 205px;
+nav.compact ul {
+  background-color: transparent;
+}
+
+nav.compact ul li {
+  font-weight: bold;
+}
+
+.inlineIndexItem {
+  padding: .3em .2em;
+  background-color: white;
 }
 
 footer {
@@ -103,55 +120,39 @@ footer a:link, footer a:visited {
 }
 
 code {
+  background-color: #eee;
   display: block;
   font-family: monospace;
   white-space: pre;
-  margin: .3em 0;
+  margin: .7em;
   padding: .3em .5em;
-  background-color: rgba(255, 255, 255, .8);
-  border-radius: 5px;
   color: #1f1f1f;
 }
 
-.header {
-  border-style: none solid solid none;
-  border-width: 2px;
-  border-color: #8895a0;
+ul.properties {
+  list-style-type: none;
+  padding: 0 0 0 1em;
+}
+
+ul.properties li {
+  margin: .3em 0;
 }
 
 .property {
   font-weight: bold;
+  font-family: serif;
+  font-size: 1.2em;
 }
 
 .depth0 {
   margin: 1em 0em;
-}
-
-.depth0 h1 {
-  text-shadow: 1px 1px 0 #cc7800;
-}
-
-.depth0.header {
-  border-style: none solid solid none;
-  border-width: 2px;
-  border-color: #9e5d00;
-  border-radius: 20px;
-  background-color: #ffc571;
+  border-color: #B2B3BB;
+  border-width: 4px;
 }
 
 .depth1 {
   margin: 1em 0 1em 1em;
-}
-
-.depth1 h1 {
-  text-shadow: 1px 1px 0 #005896;
-}
-
-.depth1.header {
-  border-style: none solid solid none;
-  border-color: #00416e;
-  border-width: 2px;
-  background-color: #c9e9ff;
+  border-color: #CECFD7;
 }
 
 .depth2 {
@@ -162,27 +163,28 @@ code {
   margin: 1em 0 1em 3em;
 }
     </style>
+    
   </head>
   <body>
     <div id="content">
-      <nav>
+      <header>
+        <h1>
+          <a href="/">
+            Change Title with @_page_title property
+          </a>
+        </h2>
+        
+      </header>
+      <nav class="">
         <ul>
           
             
               <li>
                 
+                  
                 
-                  <a href="#header-Example-App">Example App</a>
                 
-                
-              </li>
-            
-          
-            
-              <li>
-                - 
-                
-                  <a href="#header-Guesser-module">Guesser module</a>
+                  <a href="#header-Example-App" class="">Example App</a>
                 
                 
               </li>
@@ -190,29 +192,11 @@ code {
           
             
               <li>
-                - - 
+                
+                  
                 
                 
-                  <a href="#name-guess">guess</a>
-                
-              </li>
-            
-          
-            
-              <li>
-                - - 
-                
-                
-                  <a href="#name-SECRET">SECRET</a>
-                
-              </li>
-            
-          
-            
-              <li>
-                - 
-                
-                  <a href="#header-Util-Module">Util Module</a>
+                  <a href="#header-Guesser-module" class="">Guesser module</a>
                 
                 
               </li>
@@ -220,29 +204,11 @@ code {
           
             
               <li>
-                - - 
                 
-                  <a href="#header-Cheating">Cheating</a>
-                
-                
-              </li>
-            
-          
-            
-              <li>
-                - - - 
+                  
                 
                 
-                  <a href="#name-cheat">cheat</a>
-                
-              </li>
-            
-          
-            
-              <li>
-                - - 
-                
-                  <a href="#header-Math">Math</a>
+                  <a href="#header-Util-Module" class="">Util Module</a>
                 
                 
               </li>
@@ -250,10 +216,72 @@ code {
           
             
               <li>
-                - - - 
+                
+                  
                 
                 
-                  <a href="#name-numBetween">numBetween</a>
+                  <a href="#header-Math" class="">Math</a>
+                
+                
+              </li>
+            
+          
+            
+              <li>
+                
+                  
+                
+                
+                  <a href="#header-Cheating" class="">Cheating</a>
+                
+                
+              </li>
+            
+          
+            
+              <li>
+                
+                  
+                
+                
+                
+                  <a href="#name-cheat" class="">cheat</a>
+                
+              </li>
+            
+          
+            
+              <li>
+                
+                  
+                
+                
+                
+                  <a href="#name-guess" class="">guess</a>
+                
+              </li>
+            
+          
+            
+              <li>
+                
+                  
+                
+                
+                
+                  <a href="#name-numBetween" class="">numBetween</a>
+                
+              </li>
+            
+          
+            
+              <li>
+                
+                  
+                
+                
+                
+                  <a href="#name-SECRET" class="">SECRET</a>
                 
               </li>
             
@@ -262,13 +290,14 @@ code {
       </nav>
       <div id="sections">
         
-          <section class="depth0 header" data-module="">
+        
+          <section class="depth0 header" data-module="undefined">
           
             <h1 id="header-Example-App">Example App</h1>
             
             
             
-            <ul>
+            <ul class="properties">
               
                 
               
@@ -285,16 +314,22 @@ Spoiler warning: it's <em>really cool</em>.</div>
             
           </section>
         
-          <section class="depth1 header" data-module="guesser">
+        
+          <section class="depth0 header" data-module="undefined">
           
             <h1 id="header-Guesser-module">Guesser module</h1>
             
             
             
-            <ul>
+            <ul class="properties">
               
                 
               
+                
+                  <li>
+                    <span class="property">module</span>
+                    <span>guesser</span>
+                  </li>
                 
               
                 
@@ -309,19 +344,153 @@ Spoiler warning: it's <em>really cool</em>.</div>
             
           </section>
         
-          <section class="depth2 header" data-module="guesser.guess">
+        
+          <section class="depth0 header" data-module="undefined">
+          
+            <h1 id="header-Util-Module">Util Module</h1>
+            
+            
+            
+            <ul class="properties">
+              
+                
+              
+                
+                  <li>
+                    <span class="property">module</span>
+                    <span>util</span>
+                  </li>
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+            
+            <div class="description">Back door debugging stuff</div>
+            
+          </section>
+        
+        
+          <section class="depth0 header" data-module="undefined">
+          
+            <h1 id="header-Math">Math</h1>
+            
+            
+            
+            <ul class="properties">
+              
+                
+              
+                
+              
+                
+                  <li>
+                    <span class="property">module</span>
+                    <span>util.math</span>
+                  </li>
+                
+              
+                
+              
+                
+              
+            </ul>
+            
+            <div class="description">Useful math utilities</div>
+            
+          </section>
+        
+        
+          <section class="depth0 header" data-module="undefined">
+          
+            <h1 id="header-Cheating">Cheating</h1>
+            
+            
+            
+            <ul class="properties">
+              
+                
+              
+                
+              
+                
+                  <li>
+                    <span class="property">module</span>
+                    <span>util.cheating</span>
+                  </li>
+                
+              
+                
+              
+                
+              
+            </ul>
+            
+            <div class="description">For development only!</div>
+            
+          </section>
+        
+        
+          <section class="depth1 header" data-module="cheat">
+          
+            
+            
+            
+              <h2 id="name-cheat">
+                .cheat(  )
+              </h2>
+            
+            
+            <ul class="properties">
+              
+                
+              
+                
+              
+                
+              
+                
+                  <li>
+                    <span class="property">module</span>
+                    <span>util.cheating</span>
+                  </li>
+                
+              
+                
+              
+                
+                  <li>
+                    <span class="property">return</span>
+                    <span>a number 1-10</span>
+                  </li>
+                
+              
+                
+              
+                
+              
+            </ul>
+            
+            <div class="description">Cheat and learn the secret value</div>
+            
+          </section>
+        
+        
+          <section class="depth1 header" data-module="guess">
           
             
             
             
               <h2 id="name-guess">
-                function
-                                
-                guess
+                .guess( v )
               </h2>
             
             
-            <ul>
+            <ul class="properties">
               
                 
               
@@ -331,10 +500,15 @@ Spoiler warning: it's <em>really cool</em>.</div>
               
                 
                   <li>
-                    <span class="property">
-                      param
-                    </span>
-                    guessed value
+                    <span class="property">module</span>
+                    <span>guesser</span>
+                  </li>
+                
+              
+                
+                  <li>
+                    <span class="property">param</span>
+                    <span>guessed value</span>
                   </li>
                 
               
@@ -342,11 +516,11 @@ Spoiler warning: it's <em>really cool</em>.</div>
               
                 
                   <li>
-                    <span class="property">
-                      return
-                    </span>
-                    true or false
+                    <span class="property">return</span>
+                    <span>true or false</span>
                   </li>
+                
+              
                 
               
                 
@@ -357,22 +531,87 @@ Spoiler warning: it's <em>really cool</em>.</div>
             
           </section>
         
-          <section class="depth2 header" data-module="guesser.SECRET">
+        
+          <section class="depth1 header" data-module="numBetween">
+          
+            
+            
+            
+              <h2 id="name-numBetween">
+                .numBetween( x, y )
+              </h2>
+            
+            
+            <ul class="properties">
+              
+                
+              
+                
+              
+                
+              
+                
+                  <li>
+                    <span class="property">module</span>
+                    <span>util.math</span>
+                  </li>
+                
+              
+                
+              
+                
+                  <li>
+                    <span class="property">param1</span>
+                    <span>x number</span>
+                  </li>
+                
+              
+                
+                  <li>
+                    <span class="property">param2</span>
+                    <span>y number</span>
+                  </li>
+                
+              
+                
+                  <li>
+                    <span class="property">return</span>
+                    <span>number</span>
+                  </li>
+                
+              
+                
+              
+                
+              
+            </ul>
+            
+            <div class="description">Create random number between x and y</div>
+            
+          </section>
+        
+        
+          <section class="depth1 header" data-module="SECRET">
           
             
             
             
               <h2 id="name-SECRET">
-                
-                                
                 SECRET
               </h2>
             
             
-            <ul>
+            <ul class="properties">
               
                 
               
+                
+              
+                
+                  <li>
+                    <span class="property">module</span>
+                    <span>guesser</span>
+                  </li>
                 
               
                 
@@ -388,178 +627,10 @@ Is a value from 1 to 10</div>
             
           </section>
         
-          <section class="depth1 header" data-module="util">
-          
-            <h1 id="header-Util-Module">Util Module</h1>
-            
-            
-            
-            <ul>
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-            </ul>
-            
-            <div class="description">Back door debugging stuff</div>
-            
-          </section>
-        
-          <section class="depth2 header" data-module="util.cheating">
-          
-            <h1 id="header-Cheating">Cheating</h1>
-            
-            
-            
-            <ul>
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-            </ul>
-            
-            <div class="description">For development only!</div>
-            
-          </section>
-        
-          <section class="depth3 header" data-module="util.cheating.cheat">
-          
-            
-            
-            
-              <h2 id="name-cheat">
-                function
-                                
-                cheat
-              </h2>
-            
-            
-            <ul>
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                  <li>
-                    <span class="property">
-                      return
-                    </span>
-                    a number 1-10
-                  </li>
-                
-              
-                
-              
-            </ul>
-            
-            <div class="description">Cheat and learn the secret value</div>
-            
-          </section>
-        
-          <section class="depth2 header" data-module="util.math">
-          
-            <h1 id="header-Math">Math</h1>
-            
-            
-            
-            <ul>
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-            </ul>
-            
-            <div class="description">Useful math utilities</div>
-            
-          </section>
-        
-          <section class="depth3 header" data-module="util.math.numBetween">
-          
-            
-            
-            
-              <h2 id="name-numBetween">
-                function
-                                
-                numBetween
-              </h2>
-            
-            
-            <ul>
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                  <li>
-                    <span class="property">
-                      param1
-                    </span>
-                    x number
-                  </li>
-                
-              
-                
-                  <li>
-                    <span class="property">
-                      param2
-                    </span>
-                    y number
-                  </li>
-                
-              
-                
-                  <li>
-                    <span class="property">
-                      return
-                    </span>
-                    number
-                  </li>
-                
-              
-                
-              
-            </ul>
-            
-            <div class="description">Create random number between x and y</div>
-            
-          </section>
-        
       </div>
     </div>
     <footer>
-      generated by <a href="https://github.com/incompl/updoc">updoc</a> 0.0.1
+      generated by <a href="http://incompl.github.com/updoc/">updoc</a> 0.2.2
     </footer>
     <script>
 (function() {

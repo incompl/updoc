@@ -2,13 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>updoc</title>
+    <title>Change Title with @_page_title property</title>
     <script src="prettify.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="prettify.css">
     <style>
 body {
   padding: 0;
-  margin: 1em 0 0;
+  margin: 1em 1em 0;
   font-family: sans-serif;
   line-height: 1.4em;
 }
@@ -16,26 +17,39 @@ body {
 a:link {
   color: #000498;
 }
-a:hover {
-  color: #4549ff;
-}
 a:visited {
   color: black;
+}
+a:hover {
+  color: #4549ff;
 }
 a:active {
   color: black;
 }
 
+header {
+  margin: 0 0 1em;
+}
+
+header a {
+  text-decoration: none;
+}
+
+header h1 {
+  margin: 1em 0;
+}
+
 section {
-  padding: .6em 1em .4em;
+  padding: .5em 1em;
   margin: 1em;
-  background-color: #dce8f1;
-  border-radius: 10px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #e2e3ec;
 }
 
 h1, h2, h3 {
-  text-shadow: 1px 1px 0 #838383;
-  margin: .2em 0;
+  margin: 6px 0 .6em;
+  font-family: serif;
 }
 
 h1 {
@@ -44,6 +58,7 @@ h1 {
 
 h2 {
   font-size: 1.4em;
+  margin: .4em 0 .8em;
 }
 
 h3 {
@@ -51,7 +66,7 @@ h3 {
 }
 
 p {
-  margin: .4em 0;
+  margin: .5em 0;
 }
 
 ul {
@@ -59,37 +74,39 @@ ul {
 }
 
 .description {
-  background-color: rgba(255, 255, 255, .5);
-  border-radius: 5px;
-  padding: .3em .5em;
-  margin: .5em 0 .3em;
+  margin: .5em 0;
 }
 
 #content {
-  width: 900px;
   margin: 0 auto;
+  max-width: 800px;
 }
 
 nav {
-  float: left;
-  width: 180px;
-  padding: 8px;
-  background-color: #dce8f1;
-  border-radius: 10px;
-  border-style: none solid solid none;
-  border-width: 2px;
-  border-color: #8895a0;
+  padding: .3em;
+}
+
+nav.compact {
+  line-height: 2em;
+  background-color: #e2e3ec;
 }
 
 nav ul {
   padding: 2px 7px;
   list-style-type: none;
-  background-color: rgba(255, 255, 255, .5);
-  border-radius: 5px;
 }
 
-#sections {
-  margin-left: 205px;
+nav.compact ul {
+  background-color: transparent;
+}
+
+nav.compact ul li {
+  font-weight: bold;
+}
+
+.inlineIndexItem {
+  padding: .3em .2em;
+  background-color: white;
 }
 
 footer {
@@ -103,55 +120,39 @@ footer a:link, footer a:visited {
 }
 
 code {
+  background-color: #eee;
   display: block;
   font-family: monospace;
   white-space: pre;
-  margin: .3em 0;
+  margin: .7em;
   padding: .3em .5em;
-  background-color: rgba(255, 255, 255, .8);
-  border-radius: 5px;
   color: #1f1f1f;
 }
 
-.header {
-  border-style: none solid solid none;
-  border-width: 2px;
-  border-color: #8895a0;
+ul.properties {
+  list-style-type: none;
+  padding: 0 0 0 1em;
+}
+
+ul.properties li {
+  margin: .3em 0;
 }
 
 .property {
   font-weight: bold;
+  font-family: serif;
+  font-size: 1.2em;
 }
 
 .depth0 {
   margin: 1em 0em;
-}
-
-.depth0 h1 {
-  text-shadow: 1px 1px 0 #cc7800;
-}
-
-.depth0.header {
-  border-style: none solid solid none;
-  border-width: 2px;
-  border-color: #9e5d00;
-  border-radius: 20px;
-  background-color: #ffc571;
+  border-color: #B2B3BB;
+  border-width: 4px;
 }
 
 .depth1 {
   margin: 1em 0 1em 1em;
-}
-
-.depth1 h1 {
-  text-shadow: 1px 1px 0 #005896;
-}
-
-.depth1.header {
-  border-style: none solid solid none;
-  border-color: #00416e;
-  border-width: 2px;
-  background-color: #c9e9ff;
+  border-color: #CECFD7;
 }
 
 .depth2 {
@@ -162,27 +163,28 @@ code {
   margin: 1em 0 1em 3em;
 }
     </style>
+    
   </head>
   <body>
     <div id="content">
-      <nav>
+      <header>
+        <h1>
+          <a href="/">
+            Change Title with @_page_title property
+          </a>
+        </h2>
+        
+      </header>
+      <nav class="">
         <ul>
           
             
               <li>
                 
+                  
                 
-                  <a href="#header-updoc">updoc</a>
                 
-                
-              </li>
-            
-          
-            
-              <li>
-                - 
-                
-                  <a href="#header-About">About</a>
+                  <a href="#header-updoc" class="">updoc</a>
                 
                 
               </li>
@@ -190,19 +192,11 @@ code {
           
             
               <li>
-                - 
                 
-                  <a href="#header-Features">Features</a>
+                  
                 
                 
-              </li>
-            
-          
-            
-              <li>
-                - 
-                
-                  <a href="#header-Example">Example</a>
+                  <a href="#header-Features" class="">Features</a>
                 
                 
               </li>
@@ -210,19 +204,11 @@ code {
           
             
               <li>
-                - 
                 
-                  <a href="#header-Contribute">Contribute</a>
+                  
                 
                 
-              </li>
-            
-          
-            
-              <li>
-                - 
-                
-                  <a href="#header-Using-updoc">Using updoc</a>
+                  <a href="#header-Example" class="">Example</a>
                 
                 
               </li>
@@ -230,19 +216,11 @@ code {
           
             
               <li>
-                - 
                 
-                  <a href="#header-Rules">Rules</a>
+                  
                 
                 
-              </li>
-            
-          
-            
-              <li>
-                - 
-                
-                  <a href="#header-Modules">Modules</a>
+                  <a href="#header-Contribute" class="">Contribute</a>
                 
                 
               </li>
@@ -250,9 +228,11 @@ code {
           
             
               <li>
-                - 
                 
-                  <a href="#header-Templates">Templates</a>
+                  
+                
+                
+                  <a href="#header-About" class="">About</a>
                 
                 
               </li>
@@ -260,27 +240,78 @@ code {
           
             
               <li>
-                - 
                 
-                  <a href="#header-Highlighting">Highlighting</a>
+                  
+                
+                
+                  <a href="#header-Rules" class="">Rules</a>
                 
                 
               </li>
             
           
+            
+              <li>
+                
+                  
+                
+                
+                  <a href="#header-Modules" class="">Modules</a>
+                
+                
+              </li>
+            
+          
+            
+              <li>
+                
+                  
+                
+                
+                  <a href="#header-Templates" class="">Templates</a>
+                
+                
+              </li>
+            
+          
+            
+              <li>
+                
+                  
+                
+                
+                  <a href="#header-Highlighting" class="">Highlighting</a>
+                
+                
+              </li>
+            
+          
+            
+          
+            
+              <li>
+                
+                  
+                
+                
+                  <a href="#header-Using-updoc" class="">Using updoc</a>
+                
+                
+              </li>
             
           
         </ul>
       </nav>
       <div id="sections">
         
-          <section class="depth0 header" data-module="">
+        
+          <section class="depth0 header" data-module="undefined">
           
             <h1 id="header-updoc">updoc</h1>
             
             
             
-            <ul>
+            <ul class="properties">
               
                 
               
@@ -296,16 +327,158 @@ code {
             
           </section>
         
-          <section class="depth1 header" data-module="1info">
+        
+          <section class="depth0 header" data-module="undefined">
+          
+            <h1 id="header-Features">Features</h1>
+            
+            
+            
+            <ul class="properties">
+              
+                
+              
+                
+                  <li>
+                    <span class="property">module</span>
+                    <span>2features</span>
+                  </li>
+                
+              
+                
+              
+                
+                  <li>
+                    <span class="property">flexible</span>
+                    <span>so you can use it however you want</span>
+                  </li>
+                
+              
+                
+                  <li>
+                    <span class="property">aware</span>
+                    <span>of function names, var names, and modules</span>
+                  </li>
+                
+              
+                
+                  <li>
+                    <span class="property">templates</span>
+                    <span>are easy to create and modify</span>
+                  </li>
+                
+              
+                
+                  <li>
+                    <span class="property">html</span>
+                    <span>allowed in comments</span>
+                  </li>
+                
+              
+                
+                  <li>
+                    <span class="property">json</span>
+                    <span>output if you want it</span>
+                  </li>
+                
+              
+                
+              
+            </ul>
+            
+            
+            
+          </section>
+        
+        
+          <section class="depth0 header" data-module="undefined">
+          
+            <h1 id="header-Example">Example</h1>
+            
+            
+            
+            <ul class="properties">
+              
+                
+              
+                
+                  <li>
+                    <span class="property">module</span>
+                    <span>3example</span>
+                  </li>
+                
+              
+                
+              
+                
+                  <li>
+                    <span class="property">demo</span>
+                    <span><a href="example.js">example.js</a> creates <a href="example.html">
+example.html</a></span>
+                  </li>
+                
+              
+                
+                  <li>
+                    <span class="property">bonus</span>
+                    <span>this site was created by <a href="index.js">this file</a></span>
+                  </li>
+                
+              
+                
+              
+            </ul>
+            
+            
+            
+          </section>
+        
+        
+          <section class="depth0 header" data-module="undefined">
+          
+            <h1 id="header-Contribute">Contribute</h1>
+            
+            
+            
+            <ul class="properties">
+              
+                
+              
+                
+                  <li>
+                    <span class="property">module</span>
+                    <span>4contribute</span>
+                  </li>
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+            
+            <div class="description"><a href="https://github.com/incompl/updoc">on github</a></div>
+            
+          </section>
+        
+        
+          <section class="depth0 header" data-module="undefined">
           
             <h1 id="header-About">About</h1>
             
             
             
-            <ul>
+            <ul class="properties">
               
                 
               
+                
+                  <li>
+                    <span class="property">module</span>
+                    <span>1info</span>
+                  </li>
                 
               
                 
@@ -329,232 +502,66 @@ api documentation.
             
           </section>
         
-          <section class="depth1 header" data-module="2features">
-          
-            <h1 id="header-Features">Features</h1>
-            
-            
-            
-            <ul>
-              
-                
-              
-                
-              
-                
-              
-                
-                  <li>
-                    <span class="property">
-                      flexible
-                    </span>
-                    so you can use it however you want
-                  </li>
-                
-              
-                
-                  <li>
-                    <span class="property">
-                      aware
-                    </span>
-                    of function names, var names, and modules
-                  </li>
-                
-              
-                
-                  <li>
-                    <span class="property">
-                      templates
-                    </span>
-                    are easy to create and modify
-                  </li>
-                
-              
-                
-                  <li>
-                    <span class="property">
-                      html
-                    </span>
-                    allowed in comments
-                  </li>
-                
-              
-                
-                  <li>
-                    <span class="property">
-                      json
-                    </span>
-                    output if you want it
-                  </li>
-                
-              
-                
-              
-            </ul>
-            
-            
-            
-          </section>
         
-          <section class="depth1 header" data-module="3example">
-          
-            <h1 id="header-Example">Example</h1>
-            
-            
-            
-            <ul>
-              
-                
-              
-                
-              
-                
-              
-                
-                  <li>
-                    <span class="property">
-                      demo
-                    </span>
-                    <a href="example.js">example.js</a> creates <a href="example.html">
-example.html</a>
-                  </li>
-                
-              
-                
-                  <li>
-                    <span class="property">
-                      bonus
-                    </span>
-                    this site was created by <a href="index.js">this file</a>
-                  </li>
-                
-              
-                
-              
-            </ul>
-            
-            
-            
-          </section>
-        
-          <section class="depth1 header" data-module="4contribute">
-          
-            <h1 id="header-Contribute">Contribute</h1>
-            
-            
-            
-            <ul>
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-            </ul>
-            
-            <div class="description"><a href="https://github.com/incompl/updoc">on github</a></div>
-            
-          </section>
-        
-          <section class="depth1 header" data-module="5using">
-          
-            <h1 id="header-Using-updoc">Using updoc</h1>
-            
-            
-            
-            <ul>
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-            </ul>
-            
-            <div class="description">Install updoc like this:
-<code>sudo npm install updoc -g</code>
-Use updoc like this:
-<code>updoc input.js output.html</code>
-An optional 3rd argument specifies the template.</div>
-            
-          </section>
-        
-          <section class="depth1 header" data-module="6rules">
+          <section class="depth0 header" data-module="undefined">
           
             <h1 id="header-Rules">Rules</h1>
             
             
             
-            <ul>
+            <ul class="properties">
               
                 
               
+                
+                  <li>
+                    <span class="property">module</span>
+                    <span>6rules</span>
+                  </li>
                 
               
                 
               
                 
                   <li>
-                    <span class="property">
-                      start
-                    </span>
-                    updoc comments with /** on new line
+                    <span class="property">start</span>
+                    <span>updoc comments with /** on new line</span>
                   </li>
                 
               
                 
                   <li>
-                    <span class="property">
-                      close
-                    </span>
-                    updoc comments with &#42;/ on new line
+                    <span class="property">close</span>
+                    <span>updoc comments with &#42;/ on new line</span>
                   </li>
                 
               
                 
                   <li>
-                    <span class="property">
-                      leading
-                    </span>
-                    *s are stripped
+                    <span class="property">leading</span>
+                    <span>*s are stripped</span>
                   </li>
                 
               
                 
                   <li>
-                    <span class="property">
-                      &#64;
-                    </span>
-                    indicates a property (escape with &amp;#64;)
+                    <span class="property">&#64;</span>
+                    <span>indicates a property (escape with &amp;#64;)</span>
                   </li>
                 
               
                 
                   <li>
-                    <span class="property">
-                      lines
-                    </span>
-                    following a property
-are included in that property
+                    <span class="property">lines</span>
+                    <span>following a property
+are included in that property</span>
                   </li>
                 
               
                 
                   <li>
-                    <span class="property">
-                      text
-                    </span>
-                    before any properties is not documented
+                    <span class="property">text</span>
+                    <span>before any properties is not documented</span>
                   </li>
                 
               
@@ -566,16 +573,22 @@ are included in that property
             
           </section>
         
-          <section class="depth1 header" data-module="7modules">
+        
+          <section class="depth0 header" data-module="undefined">
           
             <h1 id="header-Modules">Modules</h1>
             
             
             
-            <ul>
+            <ul class="properties">
               
                 
               
+                
+                  <li>
+                    <span class="property">module</span>
+                    <span>7modules</span>
+                  </li>
                 
               
                 
@@ -600,16 +613,22 @@ section.</div>
             
           </section>
         
-          <section class="depth1 header" data-module="8templates">
+        
+          <section class="depth0 header" data-module="undefined">
           
             <h1 id="header-Templates">Templates</h1>
             
             
             
-            <ul>
+            <ul class="properties">
               
                 
               
+                
+                  <li>
+                    <span class="property">module</span>
+                    <span>8templates</span>
+                  </li>
                 
               
                 
@@ -653,16 +672,22 @@ You can view the raw json output by specifying "json" as the output file
             
           </section>
         
-          <section class="depth1 header" data-module="90highlighting">
+        
+          <section class="depth0 header" data-module="undefined">
           
             <h1 id="header-Highlighting">Highlighting</h1>
             
             
             
-            <ul>
+            <ul class="properties">
               
                 
               
+                
+                  <li>
+                    <span class="property">module</span>
+                    <span>90highlighting</span>
+                  </li>
                 
               
                 
@@ -682,16 +707,22 @@ directory as your output. Then put code in a code element like this:
             
           </section>
         
-          <section class="depth1 header" data-module="91footer">
+        
+          <section class="depth0 header" data-module="undefined">
           
             
             
             
             
-            <ul>
+            <ul class="properties">
               
                 
               
+                
+                  <li>
+                    <span class="property">module</span>
+                    <span>91footer</span>
+                  </li>
                 
               
                 
@@ -705,10 +736,44 @@ at <a href="http://bocoup.com">Bocoup</a></div>
             
           </section>
         
+        
+          <section class="depth0 header" data-module="undefined">
+          
+            <h1 id="header-Using-updoc">Using updoc</h1>
+            
+            
+            
+            <ul class="properties">
+              
+                
+              
+                
+                  <li>
+                    <span class="property">module</span>
+                    <span>5using</span>
+                  </li>
+                
+              
+                
+              
+                
+              
+                
+              
+            </ul>
+            
+            <div class="description">Install updoc like this:
+<code>sudo npm install updoc -g</code>
+Use updoc like this:
+<code>updoc input.js output.html</code>
+An optional 3rd argument specifies the template.</div>
+            
+          </section>
+        
       </div>
     </div>
     <footer>
-      generated by <a href="https://github.com/incompl/updoc">updoc</a> 0.0.1
+      generated by <a href="http://incompl.github.com/updoc/">updoc</a> 0.2.2
     </footer>
     <script>
 (function() {
